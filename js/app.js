@@ -4,6 +4,7 @@ var app = express();
 var passport = require('passport');
 var mongoose = require('mongoose');
 var config = require('./config');
+var http = require('http');
 
 app.use(express.static('static'));
 
@@ -56,6 +57,20 @@ app.get('/auth/google/callback',
     // Successful authentication, redirect home.
     res.redirect('/');
   });
+ 
+ //Yelp API request
+ var api = http.createClient(80, 'https://api.yelp.com');
+ 
+ var request = api.request('GET', '/v2/search?term=food&location=San+Francisco',
+ {
+		'host': 'https://api.yelp.com',
+		'accept': 'application/json',
+		'api-key': 'cqfxiVfo3jj8F8016f2uxQ'
+ });
+ 
+ request.on('response', function(response){});
+ request.end();
+
  
 module.exports.runServer = runServer;
 module.exports.app = app;
