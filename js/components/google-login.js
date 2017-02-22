@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-// import {app} from '../app';
+
 
 export class GoogleLogin extends React.Component { 
     constructor(props) {
@@ -13,7 +13,7 @@ export class GoogleLogin extends React.Component {
 
 	return (
 				<div>
-					<a href="/auth/google"><img src="../images/sign-in-with-google.png"/></a>
+					<a href='/auth/google'><img src="../images/sign-in-with-google.png"/></a>
 				</div>
             
 

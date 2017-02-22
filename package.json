@@ -35,7 +35,14 @@
     "build:assets": "run-s clean:assets mkdir:assets _build:assets",
     "_build:assets": "cpr assets build/assets",
     "watch:assets": "run-s build:assets _watch:assets",
-    "_watch:assets": "chokidar assets/**/* -c \"npm run build:assets\""
+    "_watch:assets": "chokidar assets/**/* -c \"npm run build:assets\"",
+	 "mkdir:images": "run-s mkdir",
+    "clean:images": "rimraf build/images",
+    "build:images": "run-s clean:images mkdir:images _build:images",
+    "_build:images": "cpr images build/images",
+    "watch:images": "run-s build:images _watch:images",
+    "_watch:images": "chokidar images/**/* -c \"npm run build:images\"",
+	"server": "supervisor server.js"
   },
   "author": "Joe Turner <joe@oampo.co.uk>",
   "license": "UNLICENSED",

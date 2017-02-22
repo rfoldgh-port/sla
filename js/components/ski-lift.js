@@ -9,11 +9,11 @@ export class GoogleLogin extends React.Component {
     }
   
   
-    render() {
+    render() {-=
 
 	return (
 				<div>
-				<a href="/auth/google"><img src="../images/sign-in-with-google.png"/></a>
+				<a href="/auth/google"><img src="../../images/sign-in-with-google.png"/></a>
 				</div>
             
 
