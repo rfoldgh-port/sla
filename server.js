@@ -91,94 +91,72 @@ app.get('/auth/google/callback',
 
 app.use(express.static('/build'));
  
- //Yelp API request
- // var api = http.request(80, 'https://api.yelp.com');
  
- // var request = api.request('GET', '/v2/search?term=food&location=San+Francisco',
- // {
-	
-		// 'accept': 'application/json',
-		// 'api-key': 'cqfxiVfo3jj8F8016f2uxQ'
- // });
+var Yelp = require('yelp');
+
+
+ app.get('/yelp-search', function(req, res) {
+		var webcameLong;
+		var webcamLat;
+		
+		  var yelp = new Yelp({
+			  consumer_key: 'cqfxiVfo3jj8F8016f2uxQ',
+			  consumer_secret: '43brpIlcD1y-JDi82e9F_w19ikM',
+			  token: 'ixCWqXZbnqXJxwn1MCCEg8NlvMDU07yq',
+			  token_secret: 'ylAMBr37pWqw3Ye-dF01bRNJVeM'
+		});
+		 
+		yelp.search({ term: 'ski resort', location: req.query.location, limit: 10})
+		.then(function (data) {
+		  // webcameLong = data.region.center.longitude;
+		  // webcamLat = data.region.center.latitude;
+		  
+		  // var R = 6371;  // earth radius in km
+
+			// var radius = 50; // km
+
+			// var x1 = webcameLong - Math.degrees(radius/R/Math.cos(Math.radians(webcamLat)));
+
+			// var x2 = webcameLong + Math.degrees(radius/R/Math.cos(Math.radians(webcamLat)));
+
+			// var y1 = webcamLat + Math.degrees(radius/R);
+
+			// var y2 = webcamLat - Math.degrees(radius/R);
+			
+			// console.log("x's and y's are:", x1,x2,y1,y2);
+
+		  // console.log(data);
+		  res.json(data);
+		})
+		.catch(function (err) {
+		  console.error(err);
+		});
+  
+    // Converts from degrees to radians.
+Math.radians = function(degrees) {
+  return degrees * Math.PI / 180;
+};
  
- // var request = require('request');
-// request('https://api.yelp.com/v2/search?term=food&location=San+Francisco&limit=1', function (error, response, body) {
-  // console.log('error:', error); // Print the error if one occurred
-  // console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-  // console.log('body:', body); // Print the HTML for the Google homepage.
-// });
+// Converts from radians to degrees.
+Math.degrees = function(radians) {
+  return radians * 180 / Math.PI;
+};  
+
+
+  
+  
+  
+  
+ });
+
  
- 
-// if (require.main === module) {
-    // runServer(function(err) {
-        // if (err) {
-            // console.error(err);
-        // }
-    // });
-// };
+ if (require.main === module) {
+    runServer(function(err) {
+        if (err) {
+            console.error(err);
+        }
+    });
+};
 
-
-// /* require the modules needed */
-// var oauthSignature = require('oauth-signature');  
-// var n = require('nonce')();  
-// var request = require('request');  
-// var qs = require('querystring');  
-// var _ = require('lodash');
-
-// /* Function for yelp call
- // * ------------------------
- // * set_parameters: object with params to search
- // * callback: callback(error, response, body)
- // */
-// var request_yelp = function(set_parameters, callback) {
-
-  // /* The type of request */
-  // var httpMethod = 'GET';
-
-  // /* The url we are using for the request */
-  // var url = 'http://api.yelp.com/v2/search';
-
-  // /* We can setup default parameters here */
-  // var default_parameters = {
-    // location: 'San+Francisco',
-    // sort: '2'
-  // };
-
-  // /* We set the require parameters here */
-  // var required_parameters = {
-    // oauth_consumer_key : 'cqfxiVfo3jj8F8016f2uxQ',
-    // oauth_token : 'ixCWqXZbnqXJxwn1MCCEg8NlvMDU07yq',
-    // oauth_nonce : n(),
-    // oauth_timestamp : n().toString().substr(0,10),
-    // oauth_signature_method : 'HMAC-SHA1',
-    // oauth_version : '1.0'
-  // };
-
-  // /* We combine all the parameters in order of importance */ 
-  // var parameters = _.assign(default_parameters, set_parameters, required_parameters);
-
-  // /* We set our secrets here */
-  // var consumerSecret = process.env.consumerSecret;
-  // var tokenSecret = process.env.tokenSecret;
-
-  // /* Then we call Yelp's Oauth 1.0a server, and it returns a signature */
-  // /* Note: This signature is only good for 300 seconds after the oauth_timestamp */
-  // var signature = oauthSignature.generate(httpMethod, url, parameters, consumerSecret, tokenSecret, { encodeSignature: false});
-
-  // /* We add the signature to the list of paramters */
-  // parameters.oauth_signature = signature;
-
-  // /* Then we turn the paramters object, to a query string */
-  // var paramURL = qs.stringify(parameters);
-
-  // /* Add the query string to the url */
-  // var apiURL = url+'?'+paramURL;
-
-  // /* Then we use request to send make the API Request */
-  // request(apiURL, function(error, response, body){
-    // return callback(error, response, body);
-  // });
-
-// }; 
 module.exports.runServer = runServer;
 module.exports.app = app;
