@@ -13,12 +13,12 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 
 import store from './store';
-import GoogleLogin from './components/google-login';
+import SkiSearch from './components/ski-search-form';
 
 document.addEventListener('DOMContentLoaded', () =>
     ReactDOM.render(
 <Provider store={store}>
-          <GoogleLogin />
+          <SkiSearch />
         </Provider>,
         document.getElementById('app')
     )

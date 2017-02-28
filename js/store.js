@@ -1,9 +1,7 @@
 // import {createStore} from 'redux';
 import {createStore, applyMiddleware} from 'redux';
-import {skiLiftReducer} from './reducers/index';
 import thunk from 'redux-thunk';
-
-
+import {skiLiftReducer} from './reducers/index';
 
 export default createStore(skiLiftReducer, applyMiddleware(thunk));
 
