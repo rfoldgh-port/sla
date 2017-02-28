@@ -7,6 +7,8 @@ var config = require('./config');
 var http = require('http');
 var User = require('./models/userModel');
 var session = require('express-session');
+var SkiSearchForm = require('./js/components/ski-search-form');
+var React = require('react');
 
 var MongoStore = require('connect-mongo')(session);
 app.use(express.static('static'));
@@ -96,8 +98,6 @@ var Yelp = require('yelp');
 
 
  app.get('/yelp-search', function(req, res) {
-		var webcameLong;
-		var webcamLat;
 		
 		  var yelp = new Yelp({
 			  consumer_key: 'cqfxiVfo3jj8F8016f2uxQ',
@@ -108,43 +108,13 @@ var Yelp = require('yelp');
 		 
 		yelp.search({ term: 'ski resort', location: req.query.location, limit: 10})
 		.then(function (data) {
-		  // webcameLong = data.region.center.longitude;
-		  // webcamLat = data.region.center.latitude;
-		  
-		  // var R = 6371;  // earth radius in km
-
-			// var radius = 50; // km
-
-			// var x1 = webcameLong - Math.degrees(radius/R/Math.cos(Math.radians(webcamLat)));
-
-			// var x2 = webcameLong + Math.degrees(radius/R/Math.cos(Math.radians(webcamLat)));
-
-			// var y1 = webcamLat + Math.degrees(radius/R);
-
-			// var y2 = webcamLat - Math.degrees(radius/R);
-			
-			// console.log("x's and y's are:", x1,x2,y1,y2);
-
-		  // console.log(data);
+		 
 		  res.json(data);
+		  res.render('build/index');
 		})
 		.catch(function (err) {
 		  console.error(err);
 		});
-  
-    // Converts from degrees to radians.
-Math.radians = function(degrees) {
-  return degrees * Math.PI / 180;
-};
- 
-// Converts from radians to degrees.
-Math.degrees = function(radians) {
-  return radians * 180 / Math.PI;
-};  
-
-
-  
-  
   
   
  });

@@ -1,4 +1,4 @@
-import {GET_SKI_INFO,SHOW_SKI_RESORT,ADD_SKI_FAVORITE_SUCCESS,ADD_SKI_FAVORITE_FAILURE,REMOVE_SKI_FAVORITE_SUCCESS,REMOVE_SKI_FAVORITE_FAILURE} from '../actions/index';
+import {GET_SKI_INFO_SUCCESS,GET_SKI_INFO_FAILURE,SHOW_SKI_RESORT,ADD_SKI_FAVORITE_SUCCESS,ADD_SKI_FAVORITE_FAILURE,REMOVE_SKI_FAVORITE_SUCCESS,REMOVE_SKI_FAVORITE_FAILURE} from '../actions/index';
 
 
 const initialSkiState = {userSkiResorts: [],
@@ -19,7 +19,7 @@ export const skiLiftReducer = (state=initialSkiState, action) => {
 	console.log(state);
     
     switch(action.type){
-        case GET_SKI_INFO:
+        case GET_SKI_INFO_SUCCESS:
 
         return {...state};
 		   

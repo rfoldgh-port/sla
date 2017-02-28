@@ -27,7 +27,7 @@ export class SearchForm extends React.Component {
     
 
 
-    render() {
+     render() {
         
         let form;
               form = ( <form className="ski-lift-search" onSubmit={this.searchSkiLifts}>
@@ -48,7 +48,7 @@ export class SearchForm extends React.Component {
                 </div>
     
             );
-        }
+         }
 }
 
 export default connect()(SearchForm);
