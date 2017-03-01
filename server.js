@@ -7,11 +7,11 @@ var config = require('./config');
 var http = require('http');
 var User = require('./models/userModel');
 var session = require('express-session');
-var SkiSearchForm = require('./js/components/ski-search-form');
+// var SkiSearchForm = require('./js/components/ski-search-form');
 var React = require('react');
 
 var MongoStore = require('connect-mongo')(session);
-app.use(express.static('static'));
+app.use(express.static(__dirname + '/build'));
 
 app.use(session({
   secret: 'meda',
@@ -110,7 +110,7 @@ var Yelp = require('yelp');
 		.then(function (data) {
 		 
 		  res.json(data);
-		  res.render('build/index');
+		  // res.render('build/index');
 		})
 		.catch(function (err) {
 		  console.error(err);

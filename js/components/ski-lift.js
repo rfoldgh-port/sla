@@ -1,8 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {app} from '../app';
 
-export class GoogleLogin extends React.Component { 
+
+export class SkiSearchResults extends React.Component { 
     constructor(props) {
         super(props);   
 		
@@ -10,12 +10,18 @@ export class GoogleLogin extends React.Component {
   
   
     render() {
-
+	console.log(this.props.searchSkiResorts);
+		let businesses;
+		if(this.props.searchSkiResorts){
+			 businesses = this.props.searchSkiResorts.businesses.map(function(item){
+								return (<li>{item.name}</li>);
+			});
+		}//end if
 	return (
-				<h1>Hello, please login here</h1>
-				<div>
-				<a href="/auth/google"><img src="../../images/sign-in-with-google.png"/></a>
-				</div>
+				
+				<ul>
+				{businesses}
+				</ul>
             
 
 		);
@@ -23,7 +29,7 @@ export class GoogleLogin extends React.Component {
 };//END CLASS
         
 const mapStateToProps = (state, props) => ({
-    feedback: state.feedback,
+    searchSkiResorts: state.searchSkiResorts,
 });
 
-export default connect(mapStateToProps)(GoogleLogin);
+export default connect(mapStateToProps)(SkiSearchResults);

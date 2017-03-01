@@ -16,7 +16,7 @@ export class SearchForm extends React.Component {
 
     searchSkiLifts(event){
        event.preventDefault();
-        this.props.dispatch(getSkiInfoSuccess(this.inputText.value));
+        this.props.dispatch(getSkiInfo(this.inputText.value));
 	}
 	
 	addFavorite(event){

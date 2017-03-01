@@ -42,8 +42,8 @@ export const removeSkiFavoriteFailure = () => ({
     type: REMOVE_SKI_FAVORITE_FAILURE
 });
 
-export const getSkiInfo = () => dispatch => {
-    const url = '/ski-search';
+export const getSkiInfo = (location) => dispatch => {
+    const url = '/yelp-search?location='+ location;
     return fetch(url).then(response => {
         if (!response.ok) {
             const error = new Error(response.statusText)

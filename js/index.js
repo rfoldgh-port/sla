@@ -14,11 +14,15 @@ import {Provider} from 'react-redux';
 
 import store from './store';
 import SkiSearch from './components/ski-search-form';
+import SkiSearchResults from './components/ski-lift';
 
 document.addEventListener('DOMContentLoaded', () =>
     ReactDOM.render(
 <Provider store={store}>
+	<div>
           <SkiSearch />
+		  <SkiSearchResults />
+	</div>
         </Provider>,
         document.getElementById('app')
     )

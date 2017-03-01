@@ -5,7 +5,7 @@ const initialSkiState = {userSkiResorts: [],
                           user_id: null,
                           resort_name: '',
 					      country: '',
-						  seachSkiResorts: [],
+						  searchSkiResorts: null,
 						  resort_name: '',
 						  resort_country: '',
                           resort_rating: null
@@ -21,7 +21,7 @@ export const skiLiftReducer = (state=initialSkiState, action) => {
     switch(action.type){
         case GET_SKI_INFO_SUCCESS:
 
-        return {...state};
+        return {...state,searchSkiResorts: action.info};
 		   
 		   
         case SHOW_SKI_RESORT:
