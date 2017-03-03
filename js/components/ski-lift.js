@@ -20,7 +20,7 @@ export class SkiSearchResults extends React.Component {
 	return (
 				
 				<ul>
-				{businesses}
+					{businesses}
 				</ul>
             
 

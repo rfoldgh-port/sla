@@ -117,7 +117,23 @@ var Yelp = require('yelp');
 		});
   
   
- });
+ });app.post('/ski-favorites', function(req,res){
+    
+    // var query = {"_id": req.user._id};
+    // var update = {$push:{favorites: {ski_resort_name:'', ski_resort_address: ''}}};
+
+    // User.findOneAndUpdate(query, update, function(err){
+        
+        // console.log(err);
+    
+    	// res.status(201).json({message:'Favorite added'});
+    
+// });
+
+
+// });
+ 
+// 
 
  
  if (require.main === module) {

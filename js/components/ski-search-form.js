@@ -33,7 +33,7 @@ export class SearchForm extends React.Component {
               form = ( <form className="ski-lift-search" onSubmit={this.searchSkiLifts}>
                 <input type="text" ref={(input) => this.inputText = input } name="term-input"/>
                 <button type='submit' id="search-button">Search</button>
-				<button type='submit' id="add-favorite">Save Favorite</button>
+				<button type='submit' id="add-favorite" onClick={this.addFavorite}>Save Favorite</button>
 				
                 
                 &nbsp;
@@ -44,6 +44,7 @@ export class SearchForm extends React.Component {
 			
                 <div className="searchForm">
 				<h1>Welcome to the Ski Lift App!</h1>
+				<a class="google-button" href='/auth/google'><img src='../../images/sign-in-with-google.png'/></a>
                     {form}
                 </div>
     

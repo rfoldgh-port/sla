@@ -16,6 +16,7 @@ import store from './store';
 import SkiSearch from './components/ski-search-form';
 import SkiSearchResults from './components/ski-lift';
 
+
 document.addEventListener('DOMContentLoaded', () =>
     ReactDOM.render(
 <Provider store={store}>
