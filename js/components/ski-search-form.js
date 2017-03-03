@@ -44,7 +44,7 @@ export class SearchForm extends React.Component {
 			
                 <div className="searchForm">
 				<h1>Welcome to the Ski Lift App!</h1>
-				<a class="google-button" href='/auth/google'><img src='../../images/sign-in-with-google.png'/></a>
+				<a class="google-button" href='/auth/google'><img src='../images/sign-in-with-google.png'/></a>
                     {form}
                 </div>
     

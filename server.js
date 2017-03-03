@@ -117,7 +117,9 @@ var Yelp = require('yelp');
 		});
   
   
- });app.post('/ski-favorites', function(req,res){
+  });
+  
+  //app.post('/ski-favorites', function(req,res){
     
     // var query = {"_id": req.user._id};
     // var update = {$push:{favorites: {ski_resort_name:'', ski_resort_address: ''}}};

@@ -64,7 +64,7 @@ export const getSkiInfo = (location) => dispatch => {
 
 export const addSkiFavorite = (favorite) => dispatch => {
 	
-    const request = {url:'/yelp-search?location='+ favorite; 
+    const url = '/yelp-search?location='+ favorite; 
    return fetch(url).then(response => {
         if (!response.ok) {
             const error = new Error(response.statusText)
