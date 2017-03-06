@@ -8,7 +8,8 @@ const initialSkiState = {userSkiResorts: [],
 						  searchSkiResorts: null,
 						  skiFavorite: [],
 						  resort_country: '',
-                          resort_rating: null
+                          resort_rating: null,
+						  error: null
                           };
 
 
@@ -34,15 +35,15 @@ export const skiLiftReducer = (state=initialSkiState, action) => {
 
 		case  ADD_SKI_FAVORITE_FAILURE:
 		
-		return {...state};
+		return {...state, error: action.error};
 
 		case  REMOVE_SKI_FAVORITE_SUCCESS:
 
-		return {...state};
+		return {...state, skiFavorite: action.favorite};
 		
 		case  REMOVE_SKI_FAVORITE_FAILURE:
 
-		return {...state};
+		return {...state, error: action.error};
 
         default:
             return state; //default is to keep same state that you had before.

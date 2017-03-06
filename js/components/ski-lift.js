@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import SkiListItem from './ski-list-item';
 
 
 export class SkiSearchResults extends React.Component { 
@@ -7,6 +8,7 @@ export class SkiSearchResults extends React.Component {
         super(props);   
 		
     }
+
   
   
     render() {
@@ -14,7 +16,7 @@ export class SkiSearchResults extends React.Component {
 		let businesses;
 		if(this.props.searchSkiResorts){
 			 businesses = this.props.searchSkiResorts.businesses.map(function(item){
-								return (<li>{item.name}</li>);
+								return (<SkiListItem favorite={item}/>);
 			});
 		}//end if
 	return (

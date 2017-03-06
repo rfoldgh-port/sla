@@ -8,12 +8,15 @@ var UserSchema = new mongoose.Schema ({
         required: true,
         unique: true
     },
-    password: {
+    email: {
         type: String,
         required: true
     },
-    alias: String,
-    favorites: [{ski_resort_name: String, ski_resort_address: String}],
+	image: {
+		type: String		
+	},
+    name: String,
+    favorites: [{name:String, img_url:String, id:String}],
     
 });
 

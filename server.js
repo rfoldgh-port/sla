@@ -9,29 +9,29 @@ var User = require('./models/userModel');
 var session = require('express-session');
 // var SkiSearchForm = require('./js/components/ski-search-form');
 var React = require('react');
+var cookie = require('cookie-parser');
+var bodyParser = require('body-parser');
 
 var MongoStore = require('connect-mongo')(session);
 app.use(express.static(__dirname + '/build'));
 
-app.use(session({
-  secret: 'meda',
-  resave: true,
-  saveUninitialized: true,
-  store: new MongoStore({ mongooseConnection: mongoose.connection })
-}));
 
-app.use(passport.initialize());
-app.use(passport.session());
+
 
 passport.serializeUser(function(user, done) {
-  done(null, user);
+	console.log("Serialize",user);
+  done(null, user._id);
 });
 
+
 passport.deserializeUser(function(id, done) {
+	console.log("Deserialize",id);
   User.findById(id, function(err, user) {
+	  console.log(user);
     done(err, user);
   });
 });
+
 
 var GoogleStrategy = require('passport-google-oauth20').Strategy;
 
@@ -61,10 +61,14 @@ passport.use(new GoogleStrategy({
     callbackURL: "http://localhost:8080/auth/google/callback"
   },
   function(accessToken, refreshToken, profile, cb) {
-    User.find({ googleId: profile.id }, function (err, user) {
+    User.findOne({ googleId: profile.id }, function (err, user) {
+		console.log(err, user);
 		if(!user){
-			User.create(user, () => {
-				cb(err,user);
+			var newUser = {googleId: profile.id, name:profile.displayName, email:profile.emails[0].value, image: profile.photos[0].value}
+			console.log(newUser);
+			User.create(newUser, (err) => {
+				console.log(err);
+				cb(err,newUser);
 			});
 		} else{
 			return cb(err, user);
@@ -74,22 +78,35 @@ passport.use(new GoogleStrategy({
   }
 ));
 
+
+app.use(session({
+  secret: 'meda',
+  resave: true,
+  saveUninitialized: true,
+  store: new MongoStore({ mongooseConnection: mongoose.connection })
+}));
+
+app.use(bodyParser.json());
+app.use(cookie("ski-lift-app"));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+
 app.get('/auth/google', passport.authenticate('google', { scope: [
        'https://www.googleapis.com/auth/plus.login',
        'https://www.googleapis.com/auth/plus.profile.emails.read'] 
 }));
 
 app.get('/auth/google/callback', 
-  passport.authenticate('google', { failureRedirect: '/login' }),
-  function(req, res) {
-    console.log('helloworld');// Successful authentication, redirect home.
-    res.redirect('/');
-  });
-
+  passport.authenticate('google', { failureRedirect: '/login', successRedirect: '/' }));
+  
  app.get('/logout', function(req, res) {
   req.logout();
   res.redirect('/');
 });
+
 
 app.use(express.static('/build'));
  
@@ -119,23 +136,40 @@ var Yelp = require('yelp');
   
   });
   
-  //app.post('/ski-favorites', function(req,res){
+  
+  app.post('/ski-favorites', function(req,res){
+	  
     
-    // var query = {"_id": req.user._id};
-    // var update = {$push:{favorites: {ski_resort_name:'', ski_resort_address: ''}}};
-
-    // User.findOneAndUpdate(query, update, function(err){
+    var query = {"_id": req.user._id};
+    var update = {$addToSet:{favorites: req.body.skiFavorite}};
+	console.log(query,update);
+    User.findOneAndUpdate(query, update, function(err){
         
-        // console.log(err);
+        console.log(err);
     
-    	// res.status(201).json({message:'Favorite added'});
+    	res.status(201).json({message:'Favorite added'});
     
-// });
+});
 
 
-// });
+});
  
 // 
+  app.delete('/ski-favorites', function(req,res){
+    
+    var query = {"_id": req.user._id};
+    var update = {$pull:{favorites: {ski_resort_name:'', ski_resort_address: ''}}};
+
+    User.findOneAndUpdate(query, update, function(err){
+        
+        console.log(err);
+    
+    	res.status(201).json({message:'Favorite deleted'});
+    
+});
+
+
+});
 
  
  if (require.main === module) {

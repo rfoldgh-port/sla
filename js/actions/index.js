@@ -33,13 +33,16 @@ export const addSkiFavoriteFailure = (error) => ({
 
 
 export const REMOVE_SKI_FAVORITE_SUCCESS = 'REMOVE_SKI_FAVORITE_SUCCESS';
-export const removeSkiFavoriteSuccess = () => ({
-    type: REMOVE_SKI_FAVORITE_SUCCESS
+export const removeSkiFavoriteSuccess = (data) => ({
+    type: REMOVE_SKI_FAVORITE_SUCCESS,
+	favorite: data
+	
 });
 
 export const REMOVE_SKI_FAVORITE_FAILURE = 'REMOVE_SKI_FAVORITE_FAILURE';
-export const removeSkiFavoriteFailure = () => ({
-    type: REMOVE_SKI_FAVORITE_FAILURE
+export const removeSkiFavoriteFailure = (error) => ({
+    type: REMOVE_SKI_FAVORITE_FAILURE,
+	error: error
 });
 
 export const getSkiInfo = (location) => dispatch => {
@@ -64,8 +67,12 @@ export const getSkiInfo = (location) => dispatch => {
 
 export const addSkiFavorite = (favorite) => dispatch => {
 	
-    const url = '/yelp-search?location='+ favorite; 
-   return fetch(url).then(response => {
+    const request = {url: '/ski-favorites', method: "POST" , credentials: "same-origin",  
+	body: JSON.stringify({skiFavorite: favorite}), 
+	headers: { 'Accept': 'application/json, text/plain, /', 'Content-Type': 'application/json' }};
+	
+	
+      return fetch(request.url,request).then(response => {
         if (!response.ok) {
             const error = new Error(response.statusText)
             error.response = response
@@ -82,9 +89,9 @@ export const addSkiFavorite = (favorite) => dispatch => {
     );
 };
 
-export const removeSkiFavorite = (data) => dispatch => {
+export const removeSkiFavorite = (favorite) => dispatch => {
 	
-    const request = {url:"/ski-favorite-removed", method:"PUT" , 
+    const request = {url:"/ski-favorites", method:"DELETE" , 
 	body: JSON.stringify({skiFavorite: data}), 
 	headers: { 'Accept': 'application/json, text/plain, /', 'Content-Type': 'application/json' }};
 	
