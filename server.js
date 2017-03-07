@@ -188,3 +188,40 @@ var Yelp = require('yelp');
 
 module.exports.runServer = runServer;
 module.exports.app = app;
+
+
+//server.js -- Setting up Todo
+
+var fullTodo = new Todo({
+	text: 'Walk Dogs',
+	completed: true,
+	completedAt: 1200
+	});
+	
+fullTodo.save().then((doc) => {
+	console.log('Saved fullTodo', doc);
+}, (e) => {
+	console.log('Unable to save fullTodo');
+});
+
+//server.js create User schema
+
+var User = mongoose.model('User', {
+	email:{
+		type:String,
+		required:true,
+		minlength: 1,
+		trim: true
+	}
+});
+
+var someUser = new User({
+	email:"   holmberg18@gmail.com"
+});
+
+someUser.save().then((doc) => {
+	console.log(JSON.stringify(doc, undefined, 2));
+}, (e) => {
+	console.log('Unable to save', e);
+});
+
