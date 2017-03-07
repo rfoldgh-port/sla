@@ -136,6 +136,12 @@ var Yelp = require('yelp');
   
   });
   
+  app.get('/ski-favorites', function(req,res){
+	 
+	res.json(req.user); 
+	  
+  });
+  
   
   app.post('/ski-favorites', function(req,res){
 	  
@@ -158,7 +164,7 @@ var Yelp = require('yelp');
   app.delete('/ski-favorites', function(req,res){
     
     var query = {"_id": req.user._id};
-    var update = {$pull:{favorites: {ski_resort_name:'', ski_resort_address: ''}}};
+    var update = {$pull:{favorites:{id:req.body.skiFavorite.id}}};
 
     User.findOneAndUpdate(query, update, function(err){
         

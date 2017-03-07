@@ -5,13 +5,16 @@ import {connect} from 'react-redux';
 import store from '../store';
 import {getSkiInfo} from '../actions/index';
 import {addSkiFavorite} from '../actions/index';
+import {showSkiResorts} from '../actions/index';
 
 export class SearchForm extends React.Component { 
     constructor(props) {
         super(props);      
 
 		this.searchSkiLifts = this.searchSkiLifts.bind(this);
-		this.addFavorite = this.addFavorite.bind(this);
+		// this.addFavorite = this.addFavorite.bind(this);
+		this.showSkiFavorite = this.showSkiFavorite.bind(this);
+		
     }
 
     searchSkiLifts(event){
@@ -19,12 +22,16 @@ export class SearchForm extends React.Component {
         this.props.dispatch(getSkiInfo(this.inputText.value));
 	}
 	
-	addFavorite(event){
-		event.preventDefault();
-		this.props.dispatch(addSkiFavorite(this.inputText.value));
+	// addFavorite(event){
+		// event.preventDefault();
+		// this.props.dispatch(addSkiFavorite(this.inputText.value));
 		
-	}
+	// }
     
+	showSkiFavorite(event){
+		event.preventDefault();
+		this.props.dispatch(showSkiResorts());
+	}
 
 
      render() {
@@ -33,7 +40,7 @@ export class SearchForm extends React.Component {
               form = ( <form className="ski-lift-search" onSubmit={this.searchSkiLifts}>
                 <input type="text" ref={(input) => this.inputText = input } name="term-input"/>
                 <button type='submit' id="search-button">Search</button>
-				<button type='submit' id="add-favorite" onClick={this.addFavorite}>Save Favorite</button>
+				<button type='submit' id="show-favorites" onClick={this.showSkiFavorite}>Show Favorites</button>
 				
                 
                 &nbsp;
