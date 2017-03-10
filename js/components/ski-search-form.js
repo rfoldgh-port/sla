@@ -35,24 +35,30 @@ export class SearchForm extends React.Component {
 
 
      render() {
+		 
+		 var buttonColor = {
+				backgroundColor: "#ff1100"
+		 };
         
         let form;
-              form = ( <form className="ski-lift-search" onSubmit={this.searchSkiLifts}>
+              form = ( <div className="col s6"><form className="ski-lift-search" onSubmit={this.searchSkiLifts}>
                 <input type="text" ref={(input) => this.inputText = input } name="term-input"/>
-                <button type='submit' id="search-button">Search</button>
-				<button type='submit' id="show-favorites" onClick={this.showSkiFavorite}>Show Favorites</button>
+                <button style={buttonColor} className="btn waves-effect waves-light" type='submit' id="search-button">Search</button>
+				<button style={buttonColor} className="btn waves-effect waves-light" type='submit' id="show-favorites" onClick={this.showSkiFavorite}>Show Favorites</button>
 				
                 
                 &nbsp;
-            </form>); //JSX syntax where you can use html markup as JS objects
+            </form></div>); //JSX syntax where you can use html markup as JS objects
 			
             
             return (
 			
                 <div className="searchForm">
-				<h1>Welcome to the Ski Lift App!</h1>
-				<a class="google-button" href='/auth/google'><img src='../images/sign-in-with-google.png'/></a>
-                    {form}
+					<div className="row">
+						<h1>Welcome to the Ski Lift App!</h1>
+						<a className="google-button" href='/auth/google'><img src='../images/sign-in-with-google.png'/></a>
+						<div className="row">{form}</div>
+					</div>
                 </div>
     
             );
