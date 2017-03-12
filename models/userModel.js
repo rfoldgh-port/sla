@@ -16,7 +16,7 @@ var UserSchema = new mongoose.Schema ({
 		type: String		
 	},
     name: String,
-    favorites: [{name:String, img_url:String, id:String}],
+    favorites: [{name:String, img_url:String, rating:String, id:String}],
     
 });
 

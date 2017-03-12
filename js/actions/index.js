@@ -56,10 +56,13 @@ export const removeSkiFavoriteFailure = (error) => ({
 });
 
 
-export const showSkiResorts = () => dispatch => {
+export const showSkiResorts = (favorite) => dispatch => {
 	
-    const url = '/ski-favorites';
-    return fetch(url).then(response => {
+    const request = {url: '/ski-favorites', method: "GET" , credentials: "same-origin",  
+	body: JSON.stringify({skiFavorite: favorite}), 
+	headers: { 'Accept': 'application/json, text/plain, /', 'Content-Type': 'application/json' }};
+    
+	return fetch(request.url).then(response => {
         if (!response.ok) {
             const error = new Error(response.statusText)
             error.response = response

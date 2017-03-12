@@ -1,0 +1,21 @@
+body {
+	background-image: url("/images/ski-resort-background.jpeg");
+	background-repeat:no-repeat;
+	    /* Set a specific height */
+    min-height: 500px; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.searchForm {
+    margin: 10em 16em;
+	text-align:center;
+}
+
+img.google-image {
+    height: 4em;
+}

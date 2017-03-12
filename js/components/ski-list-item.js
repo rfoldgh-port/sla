@@ -30,12 +30,33 @@ export class SkiListItem extends React.Component {
 
      render() {
         
-        
-			
+        	 var buttonColor = {
+				backgroundColor: "blue",
+				margin: ".5em"
+			};
+			let addButton;
+			let removeButton;
+			if(this.props.favorite._id){
+					removeButton = (<button style={buttonColor} className="btn waves-effect waves-light" onClick={this.removeFavorite}>Click Here to Remove</button>);
+			} else {
+				addButton = (<button style={buttonColor} className="btn waves-effect waves-light" onClick={this.addFavorite}>Click Here to Save</button>);
+			}
             return (
 			
                 <div className="searchForm">
-					<li>{this.props.favorite.name}<button class="add-favorite" onClick={this.addFavorite}>Click Here to Save</button><button class="remove-favorite" onClick={this.removeFavorite}>Click Here to Remove</button></li>
+					<li><div className="card horizontal">
+							<div className="card-image">
+								<img src={this.props.favorite.image_url}/>
+							</div>
+							<div className="card-content">
+								<p>{this.props.favorite.name}</p>
+								<p>Yelp Rating: {this.props.favorite.rating}</p>
+							</div>
+							<div className="card-action">
+								{addButton}{removeButton}
+							</div>
+						</div>
+					</li>
                 </div>
     
             );

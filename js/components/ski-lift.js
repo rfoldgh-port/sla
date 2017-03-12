@@ -13,17 +13,31 @@ export class SkiSearchResults extends React.Component {
   
     render() {
 	console.log(this.props.searchSkiResorts);
+	console.log(this.props.skiFavorite);
 		let businesses;
+		let favorites;
 		if(this.props.searchSkiResorts){
 			 businesses = this.props.searchSkiResorts.businesses.map(function(item){
 								return (<SkiListItem favorite={item}/>);
 			});
-		}//end if
+		} else if (this.props.skiFavorite){
+			favorites = this.props.skiFavorite.favorites.map(function(item){
+								return (<SkiListItem favorite={item} />);
+				});
+		}
 	return (
-				
-				<ul>
-					{businesses}
-				</ul>
+				<div>
+					<div className="searchResults">
+						<ul>
+							{businesses}
+						</ul>
+					</div>
+					<div className="favorites">
+						<ul>
+							{favorites}
+						</ul>
+					</div>
+				</div>
             
 
 		);
@@ -32,6 +46,7 @@ export class SkiSearchResults extends React.Component {
         
 const mapStateToProps = (state, props) => ({
     searchSkiResorts: state.searchSkiResorts,
+	skiFavorite: state.skiFavorite
 });
 
 export default connect(mapStateToProps)(SkiSearchResults);

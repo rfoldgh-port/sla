@@ -126,7 +126,7 @@ var Yelp = require('yelp');
 		yelp.search({ term: 'ski resort', location: req.query.location, limit: 10})
 		.then(function (data) {
 		 
-		  res.json(data);
+		  res.status(200).json(data);
 		  // res.render('build/index');
 		})
 		.catch(function (err) {
@@ -138,7 +138,7 @@ var Yelp = require('yelp');
   
   app.get('/ski-favorites', function(req,res){
 	 
-	res.json(req.user); 
+	res.status(200).json(req.user); 
 	  
   });
   
