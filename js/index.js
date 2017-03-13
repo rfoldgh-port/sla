@@ -1,57 +1,39 @@
-//import * as actions from './actions/index';
-//import store from './store';
-//
-//store.dispatch(actions.newGame());
-//store.dispatch(actions.guessNumber(10));
-//console.log(store.getState());
-//
-////node index.js test run
 
+require('babel-polyfill');
 
+//var actions = require('./actions/index');
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Provider} from 'react-redux';
 
+var Provider = require('react-redux').Provider;
 import store from './store';
-import SkiSearch from './components/ski-search-form';
+
+var router = require('react-router');
+var Router = router.Router;
+var Route = router.Route;
+var hashHistory = router.hashHistory;
+var browserHistory = router.browserHistory;
+var IndexRoute = router.IndexRoute;
+var Link = router.Link;
+
 import SkiSearchResults from './components/ski-lift';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
-import IconButton from 'material-ui/IconButton';
-import NavigationClose from 'material-ui/svg-icons/navigation/close';
-import FlatButton from 'material-ui/FlatButton';
+import SkiListFavorite from './components/ski-lift-favorite';
+import App from './components/app';
+ import Homepage from './components/homepage';
 
-function handleTouchTap() {
-  alert('onTouchTap triggered on the title component');
-}
 
-const styles = {
-  title: {
-    cursor: 'pointer',
-  },
-};
 
-const AppBarExampleIconButton = () => (
-  <AppBar
-    title={<span style={styles.title}>Title</span>}
-    onTitleTouchTap={handleTouchTap}
-    iconElementLeft={<IconButton><NavigationClose /></IconButton>}
-    iconElementRight={<FlatButton label="Save" />}
-  />
-);
-
-document.addEventListener('DOMContentLoaded', () =>
-    ReactDOM.render(
-		// <MuiThemeProvider>
-<Provider store={store}>
-	<div>
-	 
-		// {AppBarExampleIconButton}
-		  <SkiSearch />
-		  <SkiSearchResults />
-		
-	</div>
-        </Provider>,
-        document.getElementById('app')
-    )
-);
+document.addEventListener('DOMContentLoaded', function() {
+  ReactDOM.render(
+    <Provider store={store}>
+        <Router history={hashHistory}>
+          <Route path="/" component={App}>
+            <IndexRoute component={Homepage} />
+			<Route path="favorites" component={SkiListFavorite} />
+			<Route path="search" component ={SkiSearchResults} />
+          </Route>
+        </Router>
+    </Provider>,
+    document.getElementById('app')
+  );
+});

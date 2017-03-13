@@ -21,11 +21,11 @@ export class SkiListItem extends React.Component {
 		this.props.dispatch(addSkiFavorite(this.props.favorite));
 		
 	}
-    
 	removeFavorite(event){
 		event.preventDefault();
 		this.props.dispatch(removeSkiFavorite(this.props.favorite));
 	}
+   
 
 
      render() {
@@ -39,6 +39,7 @@ export class SkiListItem extends React.Component {
 			if(this.props.favorite._id){
 					removeButton = (<button style={buttonColor} className="btn waves-effect waves-light" onClick={this.removeFavorite}>Click Here to Remove</button>);
 			} else {
+		
 				addButton = (<button style={buttonColor} className="btn waves-effect waves-light" onClick={this.addFavorite}>Click Here to Save</button>);
 			}
             return (
@@ -53,7 +54,8 @@ export class SkiListItem extends React.Component {
 								<p>Yelp Rating: {this.props.favorite.rating}</p>
 							</div>
 							<div className="card-action">
-								{addButton}{removeButton}
+								{addButton}
+								{removeButton}
 							</div>
 						</div>
 					</li>

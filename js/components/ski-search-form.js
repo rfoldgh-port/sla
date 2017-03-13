@@ -19,7 +19,8 @@ export class SearchForm extends React.Component {
 
     searchSkiLifts(event){
        event.preventDefault();
-        this.props.dispatch(getSkiInfo(this.inputText.value));
+	this.props.dispatch(getSkiInfo(this.inputText.value));
+	 window.location="/#/search";
 	}
 	
 	// addFavorite(event){
@@ -31,6 +32,7 @@ export class SearchForm extends React.Component {
 	showSkiFavorite(event){
 		event.preventDefault();
 		this.props.dispatch(showSkiResorts());
+		window.location='/#/favorites';
 	}
 
 
@@ -55,8 +57,6 @@ export class SearchForm extends React.Component {
 			
                 <div className="searchForm">
 					<div className="row">
-						<h1>Welcome to the Ski Lift App!</h1>
-						<p>Here you can search for ski resorts by region. Feel free to save them to your account for use later!</p>
 						<a className="google-button" href='/auth/google'><img className="google-image" src='../images/sign-in-with-google.png'/></a>
 						<div>{form}</div>
 					</div>
@@ -66,4 +66,5 @@ export class SearchForm extends React.Component {
          }
 }
 
-export default connect()(SearchForm);
+var SearchFormContainer = connect()(SearchForm);
+export default SearchFormContainer;
