@@ -1,3 +1,8 @@
+.homepage-text {
+	text-align:center;
+}
+
+
 body {
 	background-image: url("/images/ski-resort-background.jpeg");
 	background-repeat:no-repeat;
@@ -25,7 +30,7 @@ nav {
 }
 
 footer {
-	background-color: rgba(137, 180, 206, .5);
+	background-color: rgba(102, 127, 142, 0.8);
 	position: absolute;
 	bottom: 0;
 	width: 65%;

@@ -1,7 +1,20 @@
 import 'isomorphic-fetch';
 
+
+export const LOGGED_IN_SUCCESS = 'LOGGED_IN_SUCCESS';
+export const loggedInSuccess = (data) => ({
+    type: 'LOGGED_IN_SUCCESS',
+    info: data
+});
+
+export const LOGGED_IN_FAILURE = 'GET_SKI_INFO_FAILURE';
+export const loggedInFailure = (data, error) => ({
+	type: LOGGED_IN_FAILURE,
+	error: error
+
+});
 //Instantiate Actions
-export const GET_SKI_INFO_SUCCESS = 'GET_SKI_INFO_SUCCESS';//Create a function and a variable, function we use in the component. In the reducer, we use the constant, the variable. Instead of checking the type with a string, we check the type with a variable. 
+export const GET_SKI_INFO_SUCCESS = 'GET_SKI_INFO_SUCCESS';//Create a function and a variable, function we use in the component. In the reducer, we use the constant, the variable. Instead of checking the type with a string, we check the type with a variable.
 export const getSkiInfoSuccess = (data) => ({
     type: GET_SKI_INFO_SUCCESS,
 	info: data
@@ -12,13 +25,13 @@ export const GET_SKI_INFO_FAILURE = 'GET_SKI_INFO_FAILURE';
 export const getSkiInfoFailure = (data, error) => ({
 	type: GET_SKI_INFO_FAILURE,
 	error: error
-	
+
 });
 
 export const SHOW_SKI_RESORT_SUCCESS = 'SHOW_SKI_RESORT';
 export const showSkiResortSuccess = (data) => ({
 	type: SHOW_SKI_RESORT_SUCCESS,
-	favorite: data	
+	favorite: data
 });
 
 export const SHOW_SKI_RESORT_FAILURE = 'SHOW_SKI_RESORT_FAILURE';
@@ -46,7 +59,7 @@ export const REMOVE_SKI_FAVORITE_SUCCESS = 'REMOVE_SKI_FAVORITE_SUCCESS';
 export const removeSkiFavoriteSuccess = (data) => ({
     type: REMOVE_SKI_FAVORITE_SUCCESS,
 	favorite: data
-	
+
 });
 
 export const REMOVE_SKI_FAVORITE_FAILURE = 'REMOVE_SKI_FAVORITE_FAILURE';
@@ -55,14 +68,35 @@ export const removeSkiFavoriteFailure = (error) => ({
 	error: error
 });
 
+export const loggedInUser = () => dispatch => {
+
+  const request = {url: '/user', method: "GET" , credentials: "same-origin",
+  headers: { 'Accept': 'application/json, text/plain, /', 'Content-Type': 'application/json' }};
+
+  return fetch(request.url, request).then(response => {
+        if (!response.ok) {
+            const error = new Error(response.statusText)
+            error.response = response
+            throw error;
+        }
+        return response;
+    })
+    .then(response => response.json())
+    .then(data =>
+        dispatch(loggedInSuccess(data))
+    )
+    .catch(error =>
+        dispatch(loggedInFailure(error))
+    );
+};
 
 export const showSkiResorts = (favorite) => dispatch => {
-	
-    const request = {url: '/ski-favorites', method: "GET" , credentials: "same-origin",  
-	body: JSON.stringify({skiFavorite: favorite}), 
+
+    const request = {url: '/ski-favorites', method: "GET" , credentials: "same-origin",
+	body: JSON.stringify({skiFavorite: favorite}),
 	headers: { 'Accept': 'application/json, text/plain, /', 'Content-Type': 'application/json' }};
-    
-	return fetch(request.url).then(response => {
+
+	return fetch(request.url, request).then(response => {
         if (!response.ok) {
             const error = new Error(response.statusText)
             error.response = response
@@ -100,12 +134,12 @@ export const getSkiInfo = (location) => dispatch => {
 
 
 export const addSkiFavorite = (favorite) => dispatch => {
-	
-    const request = {url: '/ski-favorites', method: "POST" , credentials: "same-origin",  
-	body: JSON.stringify({skiFavorite: favorite}), 
+
+    const request = {url: '/ski-favorites', method: "POST" , credentials: "same-origin",
+	body: JSON.stringify({skiFavorite: favorite}),
 	headers: { 'Accept': 'application/json, text/plain, /', 'Content-Type': 'application/json' }};
-	
-	
+
+
       return fetch(request.url,request).then(response => {
         if (!response.ok) {
             const error = new Error(response.statusText)
@@ -124,11 +158,11 @@ export const addSkiFavorite = (favorite) => dispatch => {
 };
 
 export const removeSkiFavorite = (favorite) => dispatch => {
-	
+
     const request = {url:"/ski-favorites", method:"DELETE" , credentials: "same-origin",
-	body: JSON.stringify({skiFavorite: favorite}), 
+	body: JSON.stringify({skiFavorite: favorite}),
 	headers: { 'Accept': 'application/json, text/plain, /', 'Content-Type': 'application/json' }};
-	
+
     return fetch(request.url,request).then(response => {
         if (!response.ok) {
             const error = new Error(response.statusText)

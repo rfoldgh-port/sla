@@ -47,7 +47,7 @@ var runServer = function(callback) {
                 callback();
             }
 			 // return res.status(200).json({message:'root url connected'})
-       
+
         });
     });
 };
@@ -73,21 +73,23 @@ passport.use(new GoogleStrategy({
 		} else{
 			return cb(err, user);
 		}
-      
+
     });
   }
 ));
 
 
+app.use(cookie("ski-lift-app"));
+app.use(require('body-parser').urlencoded({ extended: true }));
+
 app.use(session({
   secret: 'meda',
   resave: true,
-  saveUninitialized: true,
-  store: new MongoStore({ mongooseConnection: mongoose.connection })
+  saveUninitialized: true
 }));
 
 app.use(bodyParser.json());
-app.use(cookie("ski-lift-app"));
+
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -96,12 +98,12 @@ app.use(passport.session());
 
 app.get('/auth/google', passport.authenticate('google', { scope: [
        'https://www.googleapis.com/auth/plus.login',
-       'https://www.googleapis.com/auth/plus.profile.emails.read'] 
+       'https://www.googleapis.com/auth/plus.profile.emails.read']
 }));
 
-app.get('/auth/google/callback', 
+app.get('/auth/google/callback',
   passport.authenticate('google', { failureRedirect: '/login', successRedirect: '/' }));
-  
+
  app.get('/logout', function(req, res) {
   req.logout();
   res.redirect('/');
@@ -109,75 +111,82 @@ app.get('/auth/google/callback',
 
 
 app.use(express.static('/build'));
- 
- 
+
+
 var Yelp = require('yelp');
 
 
  app.get('/yelp-search', function(req, res) {
-		
+
 		  var yelp = new Yelp({
 			  consumer_key: 'cqfxiVfo3jj8F8016f2uxQ',
 			  consumer_secret: '43brpIlcD1y-JDi82e9F_w19ikM',
 			  token: 'ixCWqXZbnqXJxwn1MCCEg8NlvMDU07yq',
 			  token_secret: 'ylAMBr37pWqw3Ye-dF01bRNJVeM'
 		});
-		 
+
 		yelp.search({ term: 'ski resort', location: req.query.location, limit: 10})
 		.then(function (data) {
-		 
+
 		  res.status(200).json(data);
 		  // res.render('build/index');
 		})
 		.catch(function (err) {
 		  console.error(err);
 		});
-  
-  
+
+
   });
-  
+
   app.get('/ski-favorites', function(req,res){
-	 
-	res.status(200).json(req.user); 
-	  
+
+	res.status(200).json(req.user);
+
   });
-  
-  
+
+
   app.post('/ski-favorites', function(req,res){
-	  
-    
+
+
+
     var query = {"_id": req.user._id};
     var update = {$addToSet:{favorites: req.body.skiFavorite}};
-	console.log(query,update);
+		console.log(query,update);
     User.findOneAndUpdate(query, update, function(err){
-        
+
         console.log(err);
-    
+
     	res.status(201).json({message:'Favorite added'});
-    
+
 });
 
 
 });
- 
-// 
+
+//
   app.delete('/ski-favorites', function(req,res){
-    
+
     var query = {"_id": req.user._id};
     var update = {$pull:{favorites:{id:req.body.skiFavorite.id}}};
 
     User.findOneAndUpdate(query, update, function(err){
-        
+
         console.log(err);
-    
+
     	res.status(201).json({message:'Favorite deleted'});
-    
-});
-
 
 });
 
- 
+
+});
+
+ app.get('/user', function(req,res){
+ 	  	console.log(req.user);
+
+	 res.status(200).json(req.user);
+
+ });
+
  if (require.main === module) {
     runServer(function(err) {
         if (err) {
@@ -188,5 +197,3 @@ var Yelp = require('yelp');
 
 module.exports.runServer = runServer;
 module.exports.app = app;
-
-

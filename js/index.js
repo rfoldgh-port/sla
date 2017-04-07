@@ -19,7 +19,8 @@ var Link = router.Link;
 import SkiSearchResults from './components/ski-lift';
 import SkiListFavorite from './components/ski-lift-favorite';
 import App from './components/app';
- import Homepage from './components/homepage';
+import Homepage from './components/homepage';
+import SearchFormContainer from './components/ski-search-form';
 
 
 
@@ -29,8 +30,9 @@ document.addEventListener('DOMContentLoaded', function() {
         <Router history={hashHistory}>
           <Route path="/" component={App}>
             <IndexRoute component={Homepage} />
-			<Route path="favorites" component={SkiListFavorite} />
-			<Route path="search" component ={SkiSearchResults} />
+            <Route path="search-form" component ={SearchFormContainer} />
+      			<Route path="favorites" component={SkiListFavorite} />
+      			<Route path="search" component ={SkiSearchResults} />
           </Route>
         </Router>
     </Provider>,

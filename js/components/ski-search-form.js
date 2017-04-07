@@ -7,7 +7,7 @@ import {getSkiInfo} from '../actions/index';
 import {addSkiFavorite} from '../actions/index';
 import {showSkiResorts} from '../actions/index';
 
-export class SearchForm extends React.Component {
+class SearchForm extends React.Component {
     constructor(props) {
         super(props);
 
@@ -51,20 +51,62 @@ export class SearchForm extends React.Component {
 
                 &nbsp;
             </form></div>); //JSX syntax where you can use html markup as JS objects
-
-
+            var login;
+            if(!this.props.user){
+             login = (<a className="google-button" href='/auth/google'><img className="google-image" src='../images/sign-in-with-google.png'/></a>);
+           }
             return (
 
-                <div className="searchForm">
-					<div className="row">
-						<a className="google-button" href='/auth/google'><img className="google-image" src='../images/sign-in-with-google.png'/></a>
-						<div>{form}</div>
-					</div>
-                </div>
+              <div className="SkiListFavorite">
+                      <nav>
+                        <div class="nav-wrapper">
+                          <a href="#" class="brand-logo right"></a>
+                          <ul id="nav-mobile" class="left hide-on-med-and-down">
+                            <li><a href="/#/">Home</a></li>
+                            <li><a href="/#/search-form">Search for Resorts</a></li>
+                            <li><a href="/#/favorites">Favorites</a></li>
+                          </ul>
+                        </div>
+                      </nav>
+
+                      <div className="searchForm">
+              					<div className="row">
+              						<div>{form}</div>
+              					</div>
+                        {login}
+                      </div>
+
+
+                <footer class="page-footer">
+                     <div class="container">
+                       <div class="row">
+                         <div class="col l6 s12">
+                           <h5 class="white-text">Footer Content</h5>
+                         </div>
+                         <div class="col l4 offset-l2 s12">
+                         </div>
+                       </div>
+                     </div>
+                     <div class="footer-copyright">
+                       <div class="container">
+                      <p> © 2014 Copyright Text</p>
+                       <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                       </div>
+                     </div>
+                </footer>
+
+    					</div>
+
+
 
             );
          }
 }
 
-var SearchFormContainer = connect()(SearchForm);
+const mapStateToProps = (state, props) => ({
+  user: state.user
+});
+
+
+var SearchFormContainer = connect(mapStateToProps)(SearchForm);
 export default SearchFormContainer;
