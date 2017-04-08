@@ -144,6 +144,11 @@ var Yelp = require('yelp');
 
   });
 
+	app.get('/logged-out', function(req,res){
+		req.logout();
+		res.sendStatus(200);
+
+	});
 
   app.post('/ski-favorites', function(req,res){
 

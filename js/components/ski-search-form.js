@@ -6,6 +6,7 @@ import store from '../store';
 import {getSkiInfo} from '../actions/index';
 import {addSkiFavorite} from '../actions/index';
 import {showSkiResorts} from '../actions/index';
+import {loggedOut} from '../actions/index';
 
 class SearchForm extends React.Component {
     constructor(props) {
@@ -14,7 +15,12 @@ class SearchForm extends React.Component {
 		this.searchSkiLifts = this.searchSkiLifts.bind(this);
 		// this.addFavorite = this.addFavorite.bind(this);
 		this.showSkiFavorite = this.showSkiFavorite.bind(this);
+    this.logOut = this.logOut.bind(this);
+    }
 
+    logOut(event){
+      event.preventDefault();
+      this.props.dispatch(loggedOut());
     }
 
     searchSkiLifts(event){
@@ -58,16 +64,18 @@ class SearchForm extends React.Component {
             return (
 
               <div className="SkiListFavorite">
-                      <nav>
-                        <div class="nav-wrapper">
-                          <a href="#" class="brand-logo right"></a>
-                          <ul id="nav-mobile" class="left hide-on-med-and-down">
-                            <li><a href="/#/">Home</a></li>
-                            <li><a href="/#/search-form">Search for Resorts</a></li>
-                            <li><a href="/#/favorites">Favorites</a></li>
-                          </ul>
-                        </div>
-                      </nav>
+
+                    <nav>
+                       <div class="nav-wrapper">
+                        <a href="#" class="brand-logo right"></a>
+                        <ul id="nav-mobile" class="left hide-on-med-and-down">
+                          <li><a href="/#/">Home</a></li>
+                          <li><a href="/#/search-form">Search for Resorts</a></li>
+                          <li><a href="/#/favorites">Favorites</a></li>
+                          <li><a href="/#/" onClick={this.logOut}>Log Out</a></li>
+                        </ul>
+                       </div>
+                    </nav>
 
                       <div className="searchForm">
               					<div className="row">

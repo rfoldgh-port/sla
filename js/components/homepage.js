@@ -1,29 +1,41 @@
 import React from 'react';
+import {loggedOut} from '../actions/index';
+import {connect} from 'react-redux';
 
-
-export default class Homepage extends React.Component {
+export class Homepage extends React.Component {
     constructor(props) {
         super(props);
 
+          this.logOut = this.logOut.bind(this);
+    }
 
+    logOut(event){
+      event.preventDefault();
+      this.props.dispatch(loggedOut());
     }
 
 
-    render() {
 
+    render() {
+      let logOutButton;
+      if(this.props.user){
+        logOutButton = (<li><a href="/#/" onClick={this.logOut}>Log Out</a></li>);
+      }
 	return (
 
-					<div className="SkiListFavorite">
-                  <nav>
-                    // <div class="nav-wrapper">
-                      <a href="#" class="brand-logo right"></a>
-                      <ul id="nav-mobile" class="left hide-on-med-and-down">
-                        <li><a href="/#/">Home</a></li>
-                        <li><a href="/#/search-form">Search for Resorts</a></li>
-                        <li><a href="/#/favorites">Favorites</a></li>
-                      </ul>
-                    // </div>
-                  </nav>
+
+          <div className="SkiListFavorite">
+              <nav>
+                 <div class="nav-wrapper">
+                  <a href="#" class="brand-logo right"></a>
+                  <ul id="nav-mobile" class="left hide-on-med-and-down">
+                    <li><a href="/#/">Home</a></li>
+                    <li><a href="/#/search-form">Search for Resorts</a></li>
+                    <li><a href="/#/favorites">Favorites</a></li>
+                    {logOutButton}
+                  </ul>
+                 </div>
+              </nav>
 
 						<div className="homepage-text"><h1>Welcome to the Ski Lift App!</h1>
 						<p>Here you can search for ski resorts by region. Feel free to save them to your account for use later!</p>
@@ -55,8 +67,11 @@ export default class Homepage extends React.Component {
 
 		);
 	}
-};//END CLASS
+};
 
-// const mapStateToProps = (state, props) => ({
+const mapStateToProps = (state, props) => ({
+  user: state.user
+});
 
-// });
+var HompageComponent = connect(mapStateToProps)(Homepage);
+export default HompageComponent;

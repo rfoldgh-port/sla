@@ -8,7 +8,7 @@ export class App extends React.Component {
 
     }
 
-
+  
    componentDidMount(){
    this.props.dispatch(loggedInUser());
  }

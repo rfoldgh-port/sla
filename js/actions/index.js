@@ -68,6 +68,44 @@ export const removeSkiFavoriteFailure = (error) => ({
 	error: error
 });
 
+export const LOGGED_OUT_SUCCESS = 'LOGGED_OUT_SUCCESS';
+export const loggedOutSuccess = (data) => ({
+    type: LOGGED_OUT_SUCCESS,
+	   info: data
+
+});
+
+export const LOGGED_OUT_FAILURE = 'LOGGED_OUT_FAILURE';
+export const loggedOutFailure = (error) => ({
+    type: LOGGED_OUT_FAILURE,
+	error: error
+});
+
+
+
+export const loggedOut = () => dispatch => {
+
+  const request = {url: '/logged-out', method: "GET" , credentials: "same-origin",
+  headers: { 'Accept': 'application/json, text/plain, /', 'Content-Type': 'application/json' }};
+
+  return fetch(request.url, request).then(response => {
+        if (!response.ok) {
+            const error = new Error(response.statusText)
+            error.response = response
+            throw error;
+        }
+        return response;
+    })
+    .then(response => response.json())
+    .then(data =>
+        dispatch(loggedOutSuccess(data))
+    )
+    .catch(error =>
+        dispatch(loggedOutFailure(error))
+    );
+};
+
+
 export const loggedInUser = () => dispatch => {
 
   const request = {url: '/user', method: "GET" , credentials: "same-origin",
@@ -90,11 +128,9 @@ export const loggedInUser = () => dispatch => {
     );
 };
 
-export const showSkiResorts = (favorite) => dispatch => {
+export const showSkiResorts = () => dispatch => {
 
-    const request = {url: '/ski-favorites', method: "GET" , credentials: "same-origin",
-	body: JSON.stringify({skiFavorite: favorite}),
-	headers: { 'Accept': 'application/json, text/plain, /', 'Content-Type': 'application/json' }};
+    const request = {url: '/ski-favorites', method: "GET" , credentials: "same-origin"};
 
 	return fetch(request.url, request).then(response => {
         if (!response.ok) {
