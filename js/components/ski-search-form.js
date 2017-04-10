@@ -43,7 +43,7 @@ class SearchForm extends React.Component {
 
 
      render() {
-
+       let logOutButton;
 		 var buttonColor = {
 				backgroundColor: "#ff1100"
 		 };
@@ -61,6 +61,10 @@ class SearchForm extends React.Component {
             if(!this.props.user){
              login = (<a className="google-button" href='/auth/google'><img className="google-image" src='../images/sign-in-with-google.png'/></a>);
            }
+           if(this.props.user){
+             logOutButton = (<li><a href="/logged-out">Log Out</a></li>);
+           }
+
             return (
 
               <div className="SkiListFavorite">
@@ -72,7 +76,7 @@ class SearchForm extends React.Component {
                           <li><a href="/#/">Home</a></li>
                           <li><a href="/#/search-form">Search for Resorts</a></li>
                           <li><a href="/#/favorites">Favorites</a></li>
-                          <li><a href="/#/" onClick={this.logOut}>Log Out</a></li>
+                          {logOutButton}
                         </ul>
                        </div>
                     </nav>
@@ -89,7 +93,7 @@ class SearchForm extends React.Component {
                      <div class="container">
                        <div class="row">
                          <div class="col l6 s12">
-                           <h5 class="white-text">Footer Content</h5>
+                           <h5 class="white-text"></h5>
                          </div>
                          <div class="col l4 offset-l2 s12">
                          </div>
@@ -97,8 +101,8 @@ class SearchForm extends React.Component {
                      </div>
                      <div class="footer-copyright">
                        <div class="container">
-                      <p> © 2014 Copyright Text</p>
-                       <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                      <p></p>
+                       <a class="grey-text text-lighten-4 right" href="#!"></a>
                        </div>
                      </div>
                 </footer>

@@ -104,9 +104,9 @@ app.get('/auth/google', passport.authenticate('google', { scope: [
 app.get('/auth/google/callback',
   passport.authenticate('google', { failureRedirect: '/login', successRedirect: '/' }));
 
- app.get('/logout', function(req, res) {
-  req.logout();
-  res.redirect('/');
+ app.get('/logged-out', function(req, res) {
+			req.logout();
+			res.redirect('/#/');
 });
 
 

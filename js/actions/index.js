@@ -71,14 +71,14 @@ export const removeSkiFavoriteFailure = (error) => ({
 export const LOGGED_OUT_SUCCESS = 'LOGGED_OUT_SUCCESS';
 export const loggedOutSuccess = (data) => ({
     type: LOGGED_OUT_SUCCESS,
-	   info: data
+	  info: data
 
 });
 
 export const LOGGED_OUT_FAILURE = 'LOGGED_OUT_FAILURE';
 export const loggedOutFailure = (error) => ({
     type: LOGGED_OUT_FAILURE,
-	error: error
+	  error: error
 });
 
 
