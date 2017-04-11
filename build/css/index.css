@@ -1,11 +1,10 @@
-
+td{
+  padding: 5px;
+}
 input.ski-lift-input {
     width: 50%;
 }
 
-footer a {
-    margin: 0 6em;
-}
 
 footer div {
     padding: 0 6em;
@@ -48,14 +47,46 @@ nav {
 	background-color: rgba(137, 180, 206, .2);
 }
 
+
+.fa{
+  font-size: 2em;
+}
+
+footer div{
+  padding: 0;
+}
+
+.footer-div-container {
+  display: inline-flex;
+}
+
+.jon-footer {
+    font-size: 2em;
+    color: steelblue;
+}
+
+footer a {
+  color: steelblue;
+}
+
+footer h5{
+  color: steelblue;
+  margin:0;
+}
+
 footer {
 	background-color: rgba(137, 180, 206, .2);
+  transition: background-color 0.5s ease;
 	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 80px 0 rgba(0,0,0,0.12), 0 6px 52px 2px rgba(0,0,0,0.2);
 	position: absolute;
 	bottom: 0;
 	display: inline-block;
 	margin: 0 auto;
 	width: 100%;
+}
+
+footer:hover {
+  background-color: rgba(255, 255, 255, .8);
 }
 
 ul#nav-mobile {

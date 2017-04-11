@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import SkiListItem from './ski-list-item';
 import {showSkiResorts} from '../actions/index';
 import {loggedOut} from '../actions/index';
-
+import Footer from './footer';
 export class SkiListFavorite extends React.Component {
     constructor(props) {
         super(props);
@@ -54,24 +54,7 @@ export class SkiListFavorite extends React.Component {
       </ul>
 
 
-<footer class="page-footer">
-        <div class="container">
-          <div class="row">
-            <div class="col l6 s12">
-              <h5 class="white-text"></h5>
-              <p class="grey-text text-lighten-4"></p>
-            </div>
-            <div class="col l4 offset-l2 s12">
-              <h5 class="white-text"></h5>
-            </div>
-          </div>
-        </div>
-        <div class="footer-copyright">
-          <div class="container">
-          <a class="grey-text text-lighten-4 right" href="#!"></a>
-          </div>
-        </div>
-</footer>
+      <Footer />
 </div>
 
 
