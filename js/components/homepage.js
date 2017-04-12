@@ -22,6 +22,12 @@ export class Homepage extends React.Component {
       if(this.props.user){
         logOutButton = (<li><a href="/logged-out">Log Out</a></li>);
       }
+
+      var login;
+      if(!this.props.user){
+       login = (<a className="google-button" href='/auth/google'><img className="google-image" src='../images/sign-in-with-google.png'/></a>);
+     }
+
 	return (
 
 
@@ -40,7 +46,8 @@ export class Homepage extends React.Component {
 
 						<div className="homepage-text"><h1>Welcome to the Ski Lift App!</h1>
 						<p>Here you can search for ski resorts by region. Feel free to save them to your account for use later!</p>
-            <a className ="waves-effect waves-light btn" href="/#/search-form">Click here to get started searching for your favorite ski resorts.</a>
+            <a className ="waves-effect waves-light btn" href="/#/search-form">Click here to get started searching for your favorite ski resorts.</a><br>
+            {login}
             </div>
             <Footer />
 					</div>

@@ -1,3 +1,7 @@
+a.waves-effect.waves-light.btn {
+    background-color: #77adec;
+}
+
 td{
   padding: 5px;
 }
@@ -47,6 +51,13 @@ nav {
 	background-color: rgba(137, 180, 206, .2);
 }
 
+.social-links {
+    padding: .5em 2em;
+}
+
+.social-links a {
+    padding: 1em;
+}
 
 .fa{
   font-size: 2em;
@@ -61,8 +72,9 @@ footer div{
 }
 
 .jon-footer {
-    font-size: 2em;
+    font-size: 1.5em;
     color: steelblue;
+    margin: 8px .5em .5em 2em;
 }
 
 footer a {
