@@ -30,8 +30,10 @@ export class SkiListFavorite extends React.Component {
 				});
 		}
 
+    var favoriteNav;
     if(this.props.user){
       logOutButton = (<li><a href="/logged-out">Log Out</a></li>);
+      favoriteNav = (<li><a href="/#/favorites">Favorites</a></li>);
     }
 
 	return (
@@ -42,7 +44,7 @@ export class SkiListFavorite extends React.Component {
         <ul id="nav-mobile" class="left hide-on-med-and-down">
           <li><a href="/#/">Home</a></li>
           <li><a href="/#/search-form">Search for Resorts</a></li>
-          <li><a href="/#/favorites">Favorites</a></li>
+          {favoriteNav}
           {logOutButton}
         </ul>
        </div>
@@ -54,7 +56,9 @@ export class SkiListFavorite extends React.Component {
       </ul>
 
 
-      <Footer />
+
+        <Footer />
+
 </div>
 
 

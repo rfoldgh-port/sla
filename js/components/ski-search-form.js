@@ -58,11 +58,13 @@ class SearchForm extends React.Component {
                 &nbsp;
             </form></div>); //JSX syntax where you can use html markup as JS objects
             var login;
+            var favorites;
             if(!this.props.user){
              login = (<a className="google-button" href='/auth/google'><img className="google-image" src='../images/sign-in-with-google.png'/></a>);
            }
            if(this.props.user){
              logOutButton = (<li><a href="/logged-out">Log Out</a></li>);
+             favorites = (<li><a href="/#/favorites">Favorites</a></li>);
            }
 
             return (
@@ -75,7 +77,7 @@ class SearchForm extends React.Component {
                         <ul id="nav-mobile" class="left hide-on-med-and-down">
                           <li><a href="/#/">Home</a></li>
                           <li><a href="/#/search-form">Search for Resorts</a></li>
-                          <li><a href="/#/favorites">Favorites</a></li>
+                          {favorites}
                           {logOutButton}
                         </ul>
                        </div>
@@ -85,11 +87,15 @@ class SearchForm extends React.Component {
               					<div className="row">
               						<div>{form}</div>
               					</div>
+                        <div className="search-form-login">
                         {login}
+                        </div>
                       </div>
 
 
-                    <Footer />
+
+                        <Footer />
+                      
 
     					</div>
 

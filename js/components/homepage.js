@@ -24,8 +24,12 @@ export class Homepage extends React.Component {
       }
 
       var login;
+      var favorites;
       if(!this.props.user){
        login = (<a className="google-button" href='/auth/google'><img className="google-image" src='../images/sign-in-with-google.png'/></a>);
+     }
+     else {
+       favorites = (<li><a href="/#/favorites">Favorites</a></li>);
      }
 
 	return (
@@ -38,7 +42,7 @@ export class Homepage extends React.Component {
                   <ul id="nav-mobile" class="left hide-on-med-and-down">
                     <li><a href="/#/">Home</a></li>
                     <li><a href="/#/search-form">Search for Resorts</a></li>
-                    <li><a href="/#/favorites">Favorites</a></li>
+                    {favorites}
                     {logOutButton}
                   </ul>
                  </div>
@@ -46,10 +50,12 @@ export class Homepage extends React.Component {
 
 						<div className="homepage-text"><h1>Welcome to the Ski Lift App!</h1>
 						<p>Here you can search for ski resorts by region. Feel free to save them to your account for use later!</p>
-            <a className ="waves-effect waves-light btn" href="/#/search-form">Click here to get started searching for your favorite ski resorts.</a><br>
+            <a className ="waves-effect waves-light btn" href="/#/search-form">Click here to get started searching for your favorite ski resorts.</a><br></br>
             {login}
             </div>
-            <Footer />
+            
+              <Footer />
+
 					</div>
 
 
