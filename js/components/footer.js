@@ -4,7 +4,7 @@
   var Footer = function(props) {
 
       return (
-          <footer>
+          <footer style={props.bottom}>
               <div>
                     <div className="footer-div-container">
                       <div className="jon-footer">Jon Holmberg</div>

@@ -13,11 +13,11 @@ var UserSchema = new mongoose.Schema ({
         required: true
     },
 	image: {
-		type: String		
+		type: String
 	},
     name: String,
-    favorites: [{name:String, img_url:String, rating:String, id:String}],
-    
+    favorites: [{name:String, image_url:String, rating:String, rating_img_url_large:String, id:String, url:String, review_count:String}],
+
 });
 
 var User = mongoose.model('User', UserSchema);

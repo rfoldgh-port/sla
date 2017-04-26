@@ -36,6 +36,13 @@ export class SkiListFavorite extends React.Component {
       favoriteNav = (<li><a href="/#/favorites">Favorites</a></li>);
     }
 
+    if (favorites){
+			var bottom= ({bottom: 'auto'});
+		} else{
+      	var bottom= ({bottom: '0'});
+    }
+
+
 	return (
     <div className="SkiListFavorite">
     <nav>
@@ -57,7 +64,7 @@ export class SkiListFavorite extends React.Component {
 
 
 
-        <Footer />
+        <Footer bottom={bottom} />
 
 </div>
 

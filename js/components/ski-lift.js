@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import SkiListItem from './ski-list-item';
+import Footer from './footer';
 
 
 export class SkiSearchResults extends React.Component {
@@ -25,6 +26,13 @@ export class SkiSearchResults extends React.Component {
 								return (<SkiListItem favorite={item} />);
 				});
 		}
+
+    if (businesses){
+      var bottom= ({bottom: 'auto'});
+    } else{
+        var bottom= ({bottom: '0'});
+    }
+
 	return (
 
     <div className="SkiListFavorite">
@@ -53,23 +61,7 @@ export class SkiSearchResults extends React.Component {
     				</div>
 
 
-      <footer class="page-footer">
-           <div class="container">
-             <div class="row">
-               <div class="col l6 s12">
-                 <h5 class="white-text">Footer Content</h5>
-               </div>
-               <div class="col l4 offset-l2 s12">
-               </div>
-             </div>
-           </div>
-           <div class="footer-copyright">
-             <div class="container">
-            <p> © 2014 Copyright Text</p>
-             <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-             </div>
-           </div>
-      </footer>
+            <Footer bottom={bottom} />
 
     </div>
 

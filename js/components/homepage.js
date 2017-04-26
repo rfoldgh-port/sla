@@ -53,8 +53,24 @@ export class Homepage extends React.Component {
             <a className ="waves-effect waves-light btn" href="/#/search-form">Click here to get started searching for your favorite ski resorts.</a><br></br>
             {login}
             </div>
-            
-              <Footer />
+            <div className="features-sections">
+              <div className="image-container">
+                  <div className="feature-block">
+                    <img className="feature-img" src="../../images/snow-mountains-winter-sport.jpg" />
+                    <p className="feature-description">Feature description goes here</p>
+                  </div>
+                  <div className="feature-block">
+                    <img className="feature-img" src="../../images/skier-on-slope.jpeg" />
+                    <p className="feature-description">Feature description goes here</p>
+                  </div>
+                  <div className="feature-block">
+                    <img className="feature-img" src="../../images/tree-slopes.jpeg" />
+                    <p className="feature-description">Feature description goes here</p>
+                  </div>
+                </div>
+            </div>
+
+            <Footer />
 
 					</div>
 

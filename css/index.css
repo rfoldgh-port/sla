@@ -1,3 +1,32 @@
+img.feature-img {
+    width: 500px;
+    height: 300px;
+    margin: 1em 2em 0 1em;
+}
+
+.image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.features-sections {
+    background-color: rgba(252, 254, 255, 1);
+    display: inline-block;
+    margin: 2em auto;
+    width: 100%;
+}
+
+.feature-block {
+    display: inline-block;
+}
+
+.card-container-business {
+    max-width: 300px;
+    display: block;
+    margin: 0 auto;
+}
+
 .sticky-footer {
   position: absolute;
   right: 0;
@@ -104,9 +133,9 @@ footer {
   transition: background-color 0.5s ease;
 	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 80px 0 rgba(0,0,0,0.12), 0 6px 52px 2px rgba(0,0,0,0.2);
 	position: absolute;
-	display: inline-block;
 	margin: 0 auto;
 	width: 100%;
+  bottom: 0;
 }
 
 footer:hover {
