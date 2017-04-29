@@ -12,7 +12,13 @@ var React = require('react');
 var cookie = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var MongoStore = require('connect-mongo')(session);
+// var MongoStore = require('connect-mongo')(session);
+
+var mongodb = require('mongodb');
+var uri = process.env.MONGOLAB_URI;
+mongodb.MongoClient.connect(uri, { server: { auto_reconnect: true } }, function (err, db) {
+});
+
 app.use(express.static(__dirname + '/build'));
 
 
