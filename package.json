@@ -1,6 +1,9 @@
 {
-  "name": "thinkful-react-starter",
-  "version": "4.6.0",
+  "name": "ski-lift-app",
+  "version": "1.0.0,
+  "engines":{
+    "node":"4.6.0"
+  },
   "description": "A React template",
   "main": "js/index.js",
   "scripts": {
