@@ -74,6 +74,7 @@
     "webpack": "^2.2.1"
   },
   "dependencies": {
+    "mongoose": "^4.8.1",
     "babel": "^6.23.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.16.0",
