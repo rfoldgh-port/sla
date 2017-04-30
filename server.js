@@ -15,7 +15,7 @@ var bodyParser = require('body-parser');
 // var MongoStore = require('connect-mongo')(session);
 
 var mongodb = require('mongodb');
-var uri = process.env.MONGOLAB_URI;
+var uri = "mongodb://heroku_12345678:random_password@ds029017.mLab.com:29017/heroku_12345678";
 mongodb.MongoClient.connect(uri, { server: { auto_reconnect: true } }, function (err, db) {
 });
 
