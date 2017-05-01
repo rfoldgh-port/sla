@@ -7,6 +7,7 @@
   "description": "A React template",
   "main": "js/index.js",
   "scripts": {
+    "start": "supervisor server.js",
     "dev": "run-p watch serve",
     "test": "mocha --recursive --compilers js:babel-core/register",
     "build": "run-s build:*",
@@ -43,8 +44,7 @@
     "build:images": "run-s clean:images mkdir:images _build:images",
     "_build:images": "cpr images build/images",
     "watch:images": "run-s build:images _watch:images",
-    "_watch:images": "chokidar images/**/* -c \"npm run build:images\"",
-    "server": "supervisor server.js"
+    "_watch:images": "chokidar images/**/* -c \"npm run build:images\""
   },
   "author": "Joe Turner <joe@oampo.co.uk>",
   "license": "UNLICENSED",
@@ -79,6 +79,7 @@
     "body-parser": "^1.16.0",
     "connect-mongo": "^1.3.2",
     "cookie-parser": "^1.4.3",
+    "dotenv-safe": "^4.0.4",
     "express": "^4.14.0",
     "express-session": "^1.15.1",
     "googleapis": "^16.1.0",
