@@ -1,8 +1,8 @@
 
 
-exports.DATABASE_URL = process.env.DATABASE_URL ||
+exports.DATABASE_URL = process.env.DATABASE_URL || global.DATABASE_URL || 'mongodb://localhost/thinkful-jon';
 //in a real world setting you’d have that set to a local variable, but assuming this is just a learning project, that should work
-                      global.DATABASE_URL ||
-                      (process.env.NODE_ENV != 'production' ? 'mongodb://localhost/thinkful-jon');
+
+
 
 exports.PORT = process.env.PORT || 8080;
