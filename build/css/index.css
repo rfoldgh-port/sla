@@ -14,27 +14,31 @@ img#ski-lift-img {
 p#location-description {
     display: inline-block;
     float: right;
-    margin-right: 22em;
-    margin-top: 15em;
-    font-size: 20px;
+    margin-right: 2em;
+    margin-top: -8em;
+    font-size: 40px;
     margin-left: 2em;
 }
 
 p#ratings-description {
     display: inline-block;
     float: left;
-    margin-top: 15em;
-    margin-right: 4em;
-    margin-left: 15em;
-    font-size: 20px;
+    margin-top: 7em;
+    margin-right: 2em;
+    margin-left: 2em;
+    font-size: 40px;
+    width: 50%;
+    text-align: center;
 }
 
 p#google-description {
     display: inline-block;
     float: right;
-    margin-top: 15em;
-    margin-right: 6em;
-    font-size: 20px;
+    margin-top: 6em;
+    margin-right: 0em;
+    font-size: 40px;
+    width: 50%;
+    text-align: center;
 }
 
 img.feature-img {
