@@ -1,3 +1,14 @@
+p#location-description {
+    font-size: 35px;
+}
+
+p#ratings-description {
+    font-size: 35px;
+}
+
+p#google-description {
+    font-size: 35px;
+}
 
 img#mountain-img {
     margin-left: 17em;
@@ -14,8 +25,8 @@ img#ski-lift-img {
 p#location-description {
     display: inline-block;
     float: right;
-    margin-right: 22em;
-    margin-top: 15em;
+    margin-right: 5em;
+    margin-top: -9em;
     font-size: 20px;
     margin-left: 2em;
 }
@@ -23,18 +34,24 @@ p#location-description {
 p#ratings-description {
     display: inline-block;
     float: left;
-    margin-top: 15em;
-    margin-right: 4em;
-    margin-left: 15em;
+    margin-top: 8em;
+    margin-right: 1em;
+    margin-left: 5em;
     font-size: 20px;
 }
 
 p#google-description {
-    display: inline-block;
+    display: flex;
+    align-content: center;
     float: right;
-    margin-top: 15em;
-    margin-right: 6em;
-    font-size: 20px;
+    /* margin-top: -9em; */
+    /* margin-right: -9em; */
+    /* font-size: 20px; */
+    justify-content: center;
+    width: 35%;
+    text-align: center;
+    margin-top: 7em;
+    margin-right: 5em;
 }
 
 img.feature-img {
