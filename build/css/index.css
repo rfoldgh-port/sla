@@ -1,0 +1,207 @@
+p#location-description {
+    font-size: 35px;
+}
+
+p#ratings-description {
+    font-size: 35px;
+}
+
+p#google-description {
+    font-size: 35px;
+}
+
+img#mountain-img {
+    margin-left: 17em;
+}
+
+img#ski-lift-img {
+    margin-left: 17em;
+}
+
+.feature-block {
+    margin: 2em 20em;
+}
+
+p#location-description {
+    display: inline-block;
+    float: right;
+    margin-right: 5em;
+    margin-top: -9em;
+    margin-left: 2em;
+}
+
+p#ratings-description {
+    display: inline-block;
+    float: left;
+    margin-top: 8em;
+    margin-right: 1em;
+    margin-left: 5em;
+}
+
+p#google-description {
+    display: flex;
+    align-content: center;
+    float: right;
+    justify-content: center;
+    width: 35%;
+    text-align: center;
+    margin-top: 7em;
+    margin-right: 5em;
+}
+
+img.feature-img {
+    width: 600px;
+    height: 500px;
+    margin: 4em auto 1em auto;
+    border-radius: 5%;
+}
+
+
+
+.features-sections {
+    background-color: rgba(252, 254, 255, 1);
+    display: inline-block;
+    margin: 2em auto;
+    width: 100%;
+    padding: 1em 0 6em 0;
+}
+
+.feature-block {
+    margin: 2em 5em;
+}
+
+.card-container-business {
+    max-width: 300px;
+    display: block;
+    margin: 0 auto;
+}
+
+.sticky-footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+}
+
+.search-form-login {
+    margin-top: -3em;
+}
+
+a.waves-effect.waves-light.btn {
+    background-color: #77adec;
+}
+
+td{
+  padding: 5px;
+}
+input.ski-lift-input {
+    width: 50%;
+}
+
+
+footer div {
+    padding: 0 6em;
+}
+
+.container {
+	width: auto !important;
+	max-width: 2400px !important;
+}
+
+
+.homepage-text {
+	text-align:center;
+}
+
+
+body {
+	background-image: url("/images/ski-resort-background.jpeg");
+	background-repeat:no-repeat;
+	    /* Set a specific height */
+    min-height: 500px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+.searchForm {
+    margin: 10em 16em;
+	text-align:center;
+}
+
+img.google-image {
+    height: 4em;
+    margin-top: 1em;
+}
+
+nav {
+	background-color: rgba(137, 180, 206, .2);
+}
+
+.social-links {
+    padding: .5em 2em;
+}
+
+.social-links a {
+    padding: 1em;
+}
+
+.fa{
+  font-size: 2em;
+}
+
+footer div{
+  padding: 0;
+}
+
+.footer-div-container {
+  display: inline-flex;
+}
+
+.jon-footer {
+    font-size: 1.5em;
+    color: steelblue;
+    margin: 8px .5em .5em 2em;
+}
+
+footer a {
+  color: steelblue;
+}
+
+footer h5{
+  color: steelblue;
+  margin:0;
+}
+
+footer {
+	background-color: rgba(137, 180, 206, .2);
+  transition: background-color 0.5s ease;
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 80px 0 rgba(0,0,0,0.12), 0 6px 52px 2px rgba(0,0,0,0.2);
+	margin: 0 auto;
+	width: 100%;
+}
+
+footer:hover {
+  background-color: rgba(255, 255, 255, .8);
+}
+
+ul#nav-mobile {
+    /* display: flex; */
+    position: absolute;
+    top: 0;
+    left: 20%;
+}
+
+.nav a {
+	    padding: 10px !important;
+}
+
+footer h1,h2,h3,h4,h5 {
+	color:white;
+}
