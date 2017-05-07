@@ -69,8 +69,9 @@ export class Homepage extends React.Component {
                   </div>
                 </div>
             </div>
-
+            <div className="homepage-footer">
             <Footer />
+            </div>
 
 					</div>
 
