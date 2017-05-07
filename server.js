@@ -56,9 +56,9 @@ var runServer = function(callback) {
 
 
 passport.use(new GoogleStrategy({
-    clientID: config.GOOGLE_ID,
-    clientSecret: config.GOOGLE_SECRET,
-    callbackURL: config.GOOGLE_CALLBACK
+    clientID: '718688875995-nn8i6hhq6n8391qoikoti959v7l1ctad.apps.googleusercontent.com',
+    clientSecret: '_ZXxY5B_w0T58mVON5bs76-0',
+    callbackURL: 'http://localhost:8080/auth/google/callback'
   },
   function(accessToken, refreshToken, profile, cb) {
     User.findOne({ googleId: profile.id }, function (err, user) {
