@@ -63,9 +63,9 @@ export class SkiListFavorite extends React.Component {
       </ul>
 
 
-
+      <div className="search-form-footer">
         <Footer bottom={bottom} />
-
+      </div>
 </div>
 
 

@@ -1,3 +1,10 @@
+
+.search-form-footer {
+    bottom: 0 !important;
+    position: absolute;
+    width: 100%;
+}
+
 p#intro-message-p {
     font-size: 25px;
 }
@@ -66,9 +73,12 @@ img.feature-img {
 }
 
 .card-container-business {
-    max-width: 300px;
-    display: block;
-    margin: 0 auto;
+    width: 300px;
+    display: inline-block;
+    margin-left: 2em;
+    /* margin-right: 0; */
+    max-height: 300px;
+    /* margin-top: 9em; */
 }
 
 .sticky-footer {
@@ -124,8 +134,9 @@ body {
 }
 
 .searchForm {
-    margin: 10em 16em;
-	text-align:center;
+    /* margin: 10em 16em; */
+    text-align:center;
+    display: inline;
 }
 
 img.google-image {
@@ -202,4 +213,95 @@ ul#nav-mobile {
 
 footer h1,h2,h3,h4,h5 {
 	color:white;
+}
+
+
+li {
+    display: inline;
+}
+
+
+.searchResults {
+    margin: 2em;
+}
+
+.card {
+    margin-bottom: 2em;
+    margin-top: 5em;
+}
+
+.business-image {
+    max-height: 300px;
+    overflow: hidden;
+}
+
+
+img.activator {}
+
+  li {
+      display: inline;
+  }
+
+  .searchForm {
+      width: 300px !important;
+  }
+
+  .searchResults {
+      margin: 2em;
+      height: 900px !important;
+  }
+
+  .card {
+      height: 397px;
+
+  }
+
+  .business-image {
+      height: 200px;
+  }
+
+
+
+  ul {
+      height: 897px;
+  }
+
+  span.card-title.activator.grey-text.text-darken-4 {
+    font-size: 20px;
+}
+
+button.btn.waves-effect.waves-light {
+    font-size: 10px;
+}
+
+input.ski-lift-input {
+    margin-top: 6em;
+}
+
+button.btn.waves-effect.waves-light {
+    font-size: 10px;
+}
+
+input.ski-lift-input {
+    margin-top: 6em;
+    z-index: 10000 !important;
+}
+
+form.ski-lift-search {
+    z-index: 1000;
+}
+
+.row {
+    z-index: 10000;
+}
+
+.SkiListFavorite {
+    z-index: 100000;
+}
+
+
+ul.left.hide-on-med-and-down {
+    margin-left: 28em;
+    margin-right: -35em;
+    height: 10%;
 }

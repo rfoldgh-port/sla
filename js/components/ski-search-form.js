@@ -74,7 +74,7 @@ class SearchForm extends React.Component {
                     <nav>
                        <div class="nav-wrapper">
                         <a href="#" class="brand-logo right"></a>
-                        <ul id="nav-mobile" class="left hide-on-med-and-down">
+                        <ul className="left hide-on-med-and-down">
                           <li><a href="/#/">Home</a></li>
                           <li><a href="/#/search-form">Search for Resorts</a></li>
                           {favorites}
@@ -93,9 +93,10 @@ class SearchForm extends React.Component {
                       </div>
 
 
-
+                    <div className="search-form-footer">
                         <Footer />
-                      
+                    </div>
+
 
     					</div>
 

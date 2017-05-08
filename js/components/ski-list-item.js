@@ -48,7 +48,7 @@ export class SkiListItem extends React.Component {
                 <div className="searchForm">
           					<li>
                       <div className="card-container-business">
-                        <div className="card">
+                        <div className="card medium">
                            <div className="card-image waves-effect waves-block waves-light">
                              <div className="business-image"><img className="activator" src={this.props.favorite.image_url} /></div>
                            </div>
