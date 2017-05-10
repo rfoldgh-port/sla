@@ -58,7 +58,7 @@ var runServer = function(callback) {
 passport.use(new GoogleStrategy({
     clientID: '718688875995-nn8i6hhq6n8391qoikoti959v7l1ctad.apps.googleusercontent.com',
     clientSecret: '_ZXxY5B_w0T58mVON5bs76-0',
-    callbackURL: 'http://localhost:8080/auth/google/callback'
+    callbackURL: 'https://gentle-bastion-25076.herokuapp.com/auth/google/callback'
   },
   function(accessToken, refreshToken, profile, cb) {
     User.findOne({ googleId: profile.id }, function (err, user) {
