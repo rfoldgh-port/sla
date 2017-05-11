@@ -43,6 +43,11 @@ export class SkiListItem extends React.Component {
 
 				addButton = (<button style={buttonColor} className="btn waves-effect waves-light" onClick={this.addFavorite}>Click Here to Save</button>);
 			}
+
+      let largeImage = this.props.favorite.image_url;
+      largeImage = largeImage.slice(0,-6);
+      largeImage = largeImage + "o.jpg";
+      
             return (
 
                 <div className="searchForm">
@@ -50,7 +55,7 @@ export class SkiListItem extends React.Component {
                       <div className="card-container-business">
                         <div className="card medium">
                            <div className="card-image waves-effect waves-block waves-light">
-                             <div className="business-image"><img className="activator" src={this.props.favorite.image_url} /></div>
+                             <div className="business-image"><img className="activator" src={largeImage} /></div>
                            </div>
                            <div className="card-content">
                              <span className="card-title activator grey-text text-darken-4">{this.props.favorite.name}<i className="material-icons right">more_vert</i></span>

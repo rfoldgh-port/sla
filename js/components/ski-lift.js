@@ -19,6 +19,7 @@ export class SkiSearchResults extends React.Component {
 		let favorites;
 		if(this.props.searchSkiResorts){
 			 businesses = this.props.searchSkiResorts.businesses.map(function(item){
+                
 								return (<SkiListItem favorite={item}/>);
 			});
 		} else if (this.props.skiFavorite){
