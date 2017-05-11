@@ -3,8 +3,71 @@
   and (max-device-width: 568px)
   and (-webkit-min-device-pixel-ratio: 2) {
 		.card.medium {
-    		margin-right:5em;
+    		display:flex;
+    		flex-direction:column;
+    		height: 700px;
+    		width:700px;
+
 		}
+
+		.searchForm {
+			    display: flex !important;
+    			margin: 6em !important;
+		}
+
+		ski-list-li {
+    		margin-bottom: 12em;
+
+		}
+
+		span.card-title.activator.grey-text.text-darken-4{
+			font-size: 40px !important;
+			line-height: 110%;
+		}
+
+		.link-to-business {
+			font-size:30px;
+		}
+
+		button.btn.waves-effect.waves-light {
+			width: 60%;
+			height: 100px;
+			font-size:20px !important;
+			z-index:9999;
+		}
+
+		.card.small .card-image+.card-content, .card.medium .card-image+.card-content, .card.large .card-image+.card-content {
+  			  max-height: 60%;
+			}
+
+			.card .card-content .card-title i {
+    				font-size: 32px;
+    				margin:.5em 0;
+			}
+
+			.business-image {
+				max-height: 600px !important;
+				height: 600px !important
+			}
+
+			span.card-title.grey-text.text-darken-4 {
+				font-size:40px
+
+			}
+
+			.ski-lift-rating{
+				font-size:35px;
+			}
+
+			.star-rating{
+				width:60%;
+			}
+
+			.number-of-reviews{
+				font-size:35px;
+			}
+
+
   }
 
 

@@ -47,11 +47,11 @@ export class SkiListItem extends React.Component {
       let largeImage = this.props.favorite.image_url;
       largeImage = largeImage.slice(0,-6);
       largeImage = largeImage + "o.jpg";
-      
+
             return (
 
                 <div className="searchForm">
-          					<li>
+          					<li className="ski-list-li">
                       <div className="card-container-business">
                         <div className="card medium">
                            <div className="card-image waves-effect waves-block waves-light">
@@ -59,14 +59,14 @@ export class SkiListItem extends React.Component {
                            </div>
                            <div className="card-content">
                              <span className="card-title activator grey-text text-darken-4">{this.props.favorite.name}<i className="material-icons right">more_vert</i></span>
-                             <p><a href={this.props.favorite.url}>Link to business</a></p>
+                             <p><a className="link-to-business" href={this.props.favorite.url}>Link to business</a></p>
                              {addButton}
                              {removeButton}
                            </div>
                            <div className="card-reveal">
                              <span className="card-title grey-text text-darken-4">{this.props.favorite.name}<i className="material-icons right">close</i></span>
-                             <div><p>Rating: </p><img src={this.props.favorite.rating_img_url_large} /></div>
-                             <div><p>Number of Reviews: {this.props.favorite.review_count}</p></div>
+                             <div><p className="ski-lift-rating">Rating: </p><img className="star-rating" src={this.props.favorite.rating_img_url_large} /></div>
+                             <div><p className="number-of-reviews">Number of Reviews: {this.props.favorite.review_count}</p></div>
                            </div>
                         </div>
                       </div>
