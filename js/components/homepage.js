@@ -56,15 +56,21 @@ export class Homepage extends React.Component {
           <div className="features-sections">
               <div className="image-container">
                   <div className="feature-block">
+				  <div class="ski-lift-div-img">
                     <img id="ski-lift-img" className="feature-img" src="../../images/snow-mountains-winter-sport.jpg" />
+				  </div>
                     <p id="location-description" className="feature-description">Look up ski resort destinations by location.</p>
                   </div>
                   <div className="feature-block">
                     <p id="ratings-description" className="feature-description">View ski resort info including ratings and links for booking.</p>
+					<div class="ski-lift-div-img">
                     <img id="skier-img" className="feature-img" src="../../images/skier-on-slope.jpeg" />
+					</div>
                   </div>
                   <div className="feature-block">
+				  <div class="ski-lift-div-img">
                     <img id="mountain-img" className="feature-img" src="../../images/tree-slopes.jpeg" />
+				  </div>
                     <p id="google-description" className="feature-description">Log in with your Google account to save ski resort information for viewing later.</p>
                   </div>
                 </div>
