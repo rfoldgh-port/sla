@@ -189,6 +189,7 @@ a.waves-effect.waves-light.btn {
 
 td{
   padding: 5px;
+  margin: 20px 0;
 }
 input.ski-lift-input {
     width: 50%;
@@ -394,4 +395,35 @@ ul.left.hide-on-med-and-down {
     margin-left: 28em;
     margin-right: -35em;
     height: 10%;
+}
+
+
+.features-section {
+    background-color: white;
+    width: 100%;
+    /* text-align: center; */
+}
+
+.feature {
+    width: 100%;
+    /* text-align: center; */
+    display: inline-block;
+    height:  auto;
+    text-align: -webkit-center;
+}
+
+.feature p {
+    width: 400px;
+    display: inline-block;
+    font-size: 2em;
+    margin: 0 20px;
+}
+
+.feature img{
+    /* display:inline-block; */
+    max-width: 500px;
+    height: auto;
+    width: 100%;
+    margin: 30px 10px;
+    border-radius: 5%;
 }

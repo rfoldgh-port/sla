@@ -39,7 +39,7 @@ export class Homepage extends React.Component {
               <nav>
                  <div className="nav-wrapper">
                   <a href="#" className="brand-logo right"></a>
-                  <ul id="nav-mobile" class="left hide-on-med-and-down">
+                  <ul id="nav-mobile" className="left hide-on-med-and-down">
                     <li><a href="/#/">Home</a></li>
                     <li><a href="/#/search-form">Search for Resorts</a></li>
                     {favorites}
@@ -53,33 +53,34 @@ export class Homepage extends React.Component {
             <a className ="waves-effect waves-light btn" href="/#/search-form">Click here to get started searching for your favorite ski resorts.</a><br></br>
             {login}
             </div>
-          <div className="features-sections">
-              <div className="image-container">
-                  <div className="feature-block">
-                    <img id="ski-lift-img" className="feature-img" src="../../images/snow-mountains-winter-sport.jpg" />
-                    <p id="location-description" className="feature-description">Look up ski resort destinations by location.</p>
-                  </div>
-                  <div className="feature-block">
-                    <p id="ratings-description" className="feature-description">View ski resort info including ratings and links for booking.</p>
-                    <img id="skier-img" className="feature-img" src="../../images/skier-on-slope.jpeg" />
-                  </div>
-                  <div className="feature-block">
-                    <img id="mountain-img" className="feature-img" src="../../images/tree-slopes.jpeg" />
-                    <p id="google-description" className="feature-description">Log in with your Google account to save ski resort information for viewing later.</p>
-                  </div>
-                </div>
-            </div>
+
+              <table className="features-section">
+                  <tr className="feature">
+                    <td><img src="../../images/snow-mountains-winter-sport.jpg" /></td>
+                    <td><p>Look up ski resort destinations by location.</p></td>
+                  </tr>
+                  <tr className="feature">
+                    <td><p>View ski resort info including ratings and links for booking.</p></td>
+                    <td><img src="../../images/skier-on-slope.jpeg" /></td>
+                  </tr>
+                  <tr className="feature">
+                    <td><img src="../../images/tree-slopes.jpeg" /></td>
+                    <td><p>Log in with your Google account to save ski resort information for viewing later.</p></td>
+                  </tr>
+              </table>
+
+
             <div className="homepage-footer">
-            <Footer />
+              <Footer />
             </div>
 
-					</div>
-
+      </div>
 
 
 		);
 	}
 };
+
 
 const mapStateToProps = (state, props) => ({
   user: state.user

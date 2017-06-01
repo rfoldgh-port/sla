@@ -19,7 +19,7 @@ export class SkiSearchResults extends React.Component {
 		let favorites;
 		if(this.props.searchSkiResorts){
 			 businesses = this.props.searchSkiResorts.businesses.map(function(item){
-                
+
 								return (<SkiListItem favorite={item}/>);
 			});
 		} else if (this.props.skiFavorite){
@@ -38,9 +38,9 @@ export class SkiSearchResults extends React.Component {
 
     <div className="SkiListFavorite">
             <nav>
-              <div class="nav-wrapper">
-                <a href="#" class="brand-logo right"></a>
-                <ul id="nav-mobile" class="left hide-on-med-and-down">
+              <div className="nav-wrapper">
+                <a href="#" className="brand-logo right"></a>
+                <ul id="nav-mobile" className="left hide-on-med-and-down">
                   <li><a href="/#/">Home</a></li>
                   <li><a href="/#/search-form">Search for Resorts</a></li>
                   <li><a href="/#/favorites">Favorites</a></li>
