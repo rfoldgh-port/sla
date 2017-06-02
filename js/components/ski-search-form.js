@@ -84,8 +84,8 @@ class SearchForm extends React.Component {
                     </nav>
 
                       <div className="searchForm">
-              					<div className="row">
-              						<div>{form}</div>
+              					<div className="search-form-container">
+              						<div className="searchf-form-div">{form}</div>
               					</div>
                         <div className="search-form-login">
                         {login}
