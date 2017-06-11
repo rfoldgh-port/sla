@@ -337,8 +337,9 @@ img.activator {}
   }
 
   .searchResults {
-      margin: 2em;
-      height: 900px !important;
+      width: 1400px;
+      display: block;
+      margin: 0 auto;
   }
 
   .card {
@@ -347,7 +348,7 @@ img.activator {}
   }
 
   .business-image {
-      height: 250p;
+      /* height: 250px; */
   }
 
 
