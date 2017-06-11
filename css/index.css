@@ -338,7 +338,9 @@ img.activator {}
 
   .searchResults {
       margin: 2em;
-      height: 900px !important;
+      max-width: 1400px;
+      display: block;
+      margin: 0 auto;
   }
 
   .card {
@@ -426,9 +428,4 @@ ul.left.hide-on-med-and-down {
     width: 100%;
     margin: 30px 10px;
     border-radius: 5%;
-}
-
-
-.card-image.waves-effect.waves-block.waves-light {
-    max-height: 100%;
 }
