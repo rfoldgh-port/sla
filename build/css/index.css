@@ -1,6 +1,16 @@
 
 .warning-message{
   display: none;
+  max-width: 250px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.warning-message p {
+    border-style: solid;
+    border-color: red;
+    color: red;
+    padding: 5px;
 }
 
 @media only screen
