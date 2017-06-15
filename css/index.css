@@ -1,3 +1,8 @@
+
+.warning-message{
+  display: none;
+}
+
 @media only screen
   and (min-device-width: 320px)
   and (max-device-width: 568px)
@@ -11,8 +16,8 @@
   }
 
 		.searchForm {
-			    display: flex !important;
-    			margin: 6em !important;
+			    display: block;
+			    margin: 0 auto;
 		}
 
 		ski-list-li {
@@ -30,10 +35,10 @@
 		}
 
 		button.btn.waves-effect.waves-light {
-			width: 60%;
-			height: 100px;
+			/* width: 60%; */
+			height: 50px;
 			font-size:20px !important;
-			z-index:9999;
+			/* z-index:9999; */
 		}
 
 		.card.small .card-image+.card-content, .card.medium .card-image+.card-content, .card.large .card-image+.card-content {
@@ -179,6 +184,7 @@ img.feature-img {
 
 .search-form-login {
     /* margin-top: -3em; */
+    max-height: 100px;
 }
 
 a.waves-effect.waves-light.btn {
@@ -190,7 +196,8 @@ td{
   margin: 20px 0;
 }
 input.ski-lift-input {
-    width: 50%;
+    width: 100%;
+    max-width: 500px;
 }
 
 
@@ -225,7 +232,7 @@ body {
 .searchForm {
     /* margin: 10em 16em; */
     text-align:center;
-    display: inline;
+    display: block;
 }
 
 img.google-image {

@@ -25,6 +25,10 @@ class SearchForm extends React.Component {
 
     searchSkiLifts(event){
         event.preventDefault();
+        if($(".ski-lift-search input").val() == ""){
+            $(".warning-message").show();
+            return;
+        }
 	      this.props.dispatch(getSkiInfo(this.inputText.value));
 	      window.location="/#/search";
 	}
@@ -52,6 +56,7 @@ class SearchForm extends React.Component {
               form = ( <div><form className="ski-lift-search" onSubmit={this.searchSkiLifts}>
                 <input className ="ski-lift-input" type="text" ref={(input) => this.inputText = input } name="term-input"/>
                 <div className="seach-favorite-buttons"><button style={buttonColor} className="btn waves-effect waves-light" type='submit' id="search-button">Search</button>
+                <div className="warning-message"><p>Please enter a valid location name.</p></div>
 				<button style={buttonColor} className="btn waves-effect waves-light" type='submit' id="show-favorites" onClick={this.showSkiFavorite}>Show Favorites</button></div>
 
 
