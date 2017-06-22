@@ -54,6 +54,7 @@ class SearchForm extends React.Component {
 
         let form;
               form = ( <div><form className="ski-lift-search" onSubmit={this.searchSkiLifts}>
+                <p className="homepage-text">Enter a city, state or area to search for ski resorts.</p>
                 <input className ="ski-lift-input" type="text" ref={(input) => this.inputText = input } name="term-input"/>
                 <div className="seach-favorite-buttons"><button style={buttonColor} className="btn waves-effect waves-light" type='submit' id="search-button">Search</button>
 
